@@ -21,6 +21,12 @@
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="login" Text="Login" />
+            
+            <br />
+            <br />
+
+            <asp:Button ID="Button2" runat="server" OnClick="registerPage" Text="Don't have an account? Register" />
+
         </div>
     </form>
 </body>
