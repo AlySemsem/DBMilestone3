@@ -72,7 +72,6 @@
     <Content Include="registerPage.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Web.config" />
-    <Content Include="zamboory.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="login.aspx.cs">
@@ -103,13 +102,6 @@
     </Compile>
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="zamboory.aspx.cs">
-      <DependentUpon>zamboory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="zamboory.aspx.designer.cs">
-      <DependentUpon>zamboory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
