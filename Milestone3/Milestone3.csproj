@@ -69,10 +69,11 @@
   <ItemGroup>
     <Content Include="login.aspx" />
     <Content Include="registerGUCian.aspx" />
+    <Content Include="registerNonGUCian.aspx" />
     <Content Include="registerPage.aspx" />
     <Content Include="test.aspx" />
+    <Content Include="test1000.aspx" />
     <Content Include="Web.config" />
-    <Content Include="zamboory.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="login.aspx.cs">
@@ -90,6 +91,13 @@
     <Compile Include="registerGUCian.aspx.designer.cs">
       <DependentUpon>registerGUCian.aspx</DependentUpon>
     </Compile>
+    <Compile Include="registerNonGUCian.aspx.cs">
+      <DependentUpon>registerNonGUCian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registerNonGUCian.aspx.designer.cs">
+      <DependentUpon>registerNonGUCian.aspx</DependentUpon>
+    </Compile>
     <Compile Include="registerPage.aspx.cs">
       <DependentUpon>registerPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,12 +112,12 @@
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
-    <Compile Include="zamboory.aspx.cs">
-      <DependentUpon>zamboory.aspx</DependentUpon>
+    <Compile Include="test1000.aspx.cs">
+      <DependentUpon>test1000.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="zamboory.aspx.designer.cs">
-      <DependentUpon>zamboory.aspx</DependentUpon>
+    <Compile Include="test1000.aspx.designer.cs">
+      <DependentUpon>test1000.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

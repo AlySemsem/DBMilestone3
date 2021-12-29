@@ -23,7 +23,8 @@ namespace Milestone3
 
         protected void registerNonGUCianF(object sender, EventArgs e)
         {
-            
+            Response.Redirect("registerNonGUCian.aspx");
+
         }
 
         protected void registerSupervisorF(object sender, EventArgs e)
