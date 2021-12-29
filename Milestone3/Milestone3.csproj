@@ -68,9 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="login.aspx" />
+    <Content Include="registerExaminer.aspx" />
     <Content Include="registerGUCian.aspx" />
+    <Content Include="registerNonGUCian.aspx" />
     <Content Include="registerPage.aspx" />
+    <Content Include="registerSupervisor.aspx" />
     <Content Include="test.aspx" />
+    <Content Include="test1000.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -82,12 +86,26 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="registerExaminer.aspx.cs">
+      <DependentUpon>registerExaminer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registerExaminer.aspx.designer.cs">
+      <DependentUpon>registerExaminer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="registerGUCian.aspx.cs">
       <DependentUpon>registerGUCian.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="registerGUCian.aspx.designer.cs">
       <DependentUpon>registerGUCian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registerNonGUCian.aspx.cs">
+      <DependentUpon>registerNonGUCian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registerNonGUCian.aspx.designer.cs">
+      <DependentUpon>registerNonGUCian.aspx</DependentUpon>
     </Compile>
     <Compile Include="registerPage.aspx.cs">
       <DependentUpon>registerPage.aspx</DependentUpon>
@@ -96,12 +114,26 @@
     <Compile Include="registerPage.aspx.designer.cs">
       <DependentUpon>registerPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="registerSupervisor.aspx.cs">
+      <DependentUpon>registerSupervisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registerSupervisor.aspx.designer.cs">
+      <DependentUpon>registerSupervisor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test1000.aspx.cs">
+      <DependentUpon>test1000.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test1000.aspx.designer.cs">
+      <DependentUpon>test1000.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

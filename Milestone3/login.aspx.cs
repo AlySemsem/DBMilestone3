@@ -46,5 +46,11 @@ namespace GUC_System
 
             }
         }
+
+        protected void registerPage(object sender, EventArgs e)
+        {
+            Response.Redirect("registerPage.aspx");
+
+        }
     }
 }
