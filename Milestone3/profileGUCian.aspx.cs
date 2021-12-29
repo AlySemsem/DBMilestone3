@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Milestone3
 {
-    public partial class test : System.Web.UI.Page
+    public partial class profileGUCian : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int userID = Int16.Parse(Session["userID"].ToString());
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Milestone3
             {
                 isnational = 0;
             }
-            SqlCommand ExaminerRegister = new SqlCommand("AddExaminer", conn);
+            SqlCommand ExaminerRegister = new SqlCommand("registerExaminer", conn);
             ExaminerRegister.CommandType = System.Data.CommandType.StoredProcedure;
             ExaminerRegister.Parameters.Add(new SqlParameter("@ThesisSerialNo", serialno));
             ExaminerRegister.Parameters.Add(new SqlParameter("@DefenseDate", date));

@@ -68,13 +68,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="login.aspx" />
+    <Content Include="profileExaminer.aspx" />
+    <Content Include="profileGUCian.aspx" />
+    <Content Include="profileNonGUCian.aspx" />
+    <Content Include="profileSupervisor.aspx" />
     <Content Include="registerExaminer.aspx" />
     <Content Include="registerGUCian.aspx" />
     <Content Include="registerNonGUCian.aspx" />
     <Content Include="registerPage.aspx" />
     <Content Include="registerSupervisor.aspx" />
-    <Content Include="test.aspx" />
-    <Content Include="test1000.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +86,34 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profileExaminer.aspx.cs">
+      <DependentUpon>profileExaminer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profileExaminer.aspx.designer.cs">
+      <DependentUpon>profileExaminer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profileGUCian.aspx.cs">
+      <DependentUpon>profileGUCian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profileGUCian.aspx.designer.cs">
+      <DependentUpon>profileGUCian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profileNonGUCian.aspx.cs">
+      <DependentUpon>profileNonGUCian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profileNonGUCian.aspx.designer.cs">
+      <DependentUpon>profileNonGUCian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profileSupervisor.aspx.cs">
+      <DependentUpon>profileSupervisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profileSupervisor.aspx.designer.cs">
+      <DependentUpon>profileSupervisor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registerExaminer.aspx.cs">
@@ -120,20 +150,6 @@
     </Compile>
     <Compile Include="registerSupervisor.aspx.designer.cs">
       <DependentUpon>registerSupervisor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="test1000.aspx.cs">
-      <DependentUpon>test1000.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test1000.aspx.designer.cs">
-      <DependentUpon>test1000.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -7,10 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Milestone3
 {
-    public partial class test1000
+
+
+    public partial class profileExaminer
     {
 
         /// <summary>

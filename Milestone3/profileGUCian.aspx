@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="test.aspx.cs" Inherits="Milestone3.test" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="profileGUCian.aspx.cs" Inherits="Milestone3.profileGUCian" %>
 
 <!DOCTYPE html>
 
@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="Label1" runat="server" Text="userID"></asp:Label>
         </div>
     </form>
 </body>

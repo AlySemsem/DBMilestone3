@@ -11,7 +11,7 @@ namespace Milestone3
 {
 
 
-    public partial class test
+    public partial class profileNonGUCian
     {
 
         /// <summary>

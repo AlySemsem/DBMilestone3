@@ -35,14 +35,37 @@ namespace GUC_System
             success.Direction = System.Data.ParameterDirection.Output;
             type.Direction = System.Data.ParameterDirection.Output;
 
+            SqlCommand loginwho = new SqlCommand("loginwhere", conn);
+            loginwho.CommandType = System.Data.CommandType.StoredProcedure;
+            loginwho.Parameters.Add(new SqlParameter("@id", id));
+
+            SqlParameter outType = loginwho.Parameters.Add("@out", System.Data.SqlDbType.Int);
+            outType.Direction = System.Data.ParameterDirection.Output;
+
             conn.Open();
+            loginwho.ExecuteNonQuery();
             loginproc.ExecuteNonQuery();
             conn.Close();
 
             if (success.Value.ToString() == "1")
             {
-                Response.Write("Hello");
-                //Response.Redirect("registerGUCian.aspx");
+                Session["userID"] = id;
+                if (outType.Value.ToString() == "0")
+                {
+                    Response.Redirect("profileGUCian.aspx");
+                } 
+                else if (outType.Value.ToString() == "1")
+                {
+                    Response.Redirect("profileNonGUCian.aspx");
+                }
+                else if (outType.Value.ToString() == "2")
+                {
+                    Response.Redirect("profileSupervisor.aspx");
+                }
+                else if (outType.Value.ToString() == "3")
+                {
+                    Response.Redirect("profileExaminer.aspx");
+                }
 
             }
         }
