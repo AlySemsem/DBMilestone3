@@ -34,7 +34,7 @@ namespace Milestone3
             NonGucianRegister.Parameters.Add(new SqlParameter("@last_name", last));
             NonGucianRegister.Parameters.Add(new SqlParameter("@password", pass));
             NonGucianRegister.Parameters.Add(new SqlParameter("@faculty", fac));
-            NonGucianRegister.Parameters.Add(new SqlParameter("@Gucian", 0));
+            NonGucianRegister.Parameters.Add(new SqlParameter("@Gucian", false));
             NonGucianRegister.Parameters.Add(new SqlParameter("@email", mail));
             NonGucianRegister.Parameters.Add(new SqlParameter("@address", add));
 

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="login.aspx" />
+    <Content Include="profileAdmin.aspx" />
     <Content Include="profileExaminer.aspx" />
     <Content Include="profileGUCian.aspx" />
     <Content Include="profileNonGUCian.aspx" />
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profileAdmin.aspx.cs">
+      <DependentUpon>profileAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profileAdmin.aspx.designer.cs">
+      <DependentUpon>profileAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="profileExaminer.aspx.cs">
       <DependentUpon>profileExaminer.aspx</DependentUpon>

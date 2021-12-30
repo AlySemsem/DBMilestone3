@@ -12,7 +12,7 @@
         <asp:Label ID="Label1" runat="server" Text="Please Log in"></asp:Label>
             <br />
             <br />
-            ID:<br />
+            Email:<br />
             <asp:TextBox ID="ID" runat="server"></asp:TextBox>
             <br />
             <br />

@@ -12,7 +12,7 @@
             <asp:Button ID="Button1" runat="server" Text="GUCian" onclick="registerGUCianF"/>
             <asp:Button ID="Button2" runat="server" Text="NonGUCian" onclick="registerNonGUCianF"/>
             <asp:Button ID="Button3" runat="server" Text="Supervisor" onclick="registerSupervisorF"/>
-            <asp:Button ID="Button4" runat="server" Text="Examiner" onclick="registerExaminerF" style="height: 29px"/>
+            <asp:Button ID="Button4" runat="server" Text="Examiner" onclick="registerExaminerF"/>
         </div>
     </form>
 </body>
