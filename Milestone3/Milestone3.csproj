@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="editExaminerProfile.aspx" />
     <Content Include="login.aspx" />
     <Content Include="profileExaminer.aspx" />
     <Content Include="profileGUCian.aspx" />
@@ -80,6 +81,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="editExaminerProfile.aspx.cs">
+      <DependentUpon>editExaminerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editExaminerProfile.aspx.designer.cs">
+      <DependentUpon>editExaminerProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
