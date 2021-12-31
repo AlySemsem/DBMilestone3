@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddDefenseGucian.aspx" />
+    <Content Include="AddDefenseNonGucian.aspx" />
     <Content Include="login.aspx" />
     <Content Include="profileExaminer.aspx" />
     <Content Include="profileGUCian.aspx" />
@@ -77,9 +79,28 @@
     <Content Include="registerNonGUCian.aspx" />
     <Content Include="registerPage.aspx" />
     <Content Include="registerSupervisor.aspx" />
+    <Content Include="supCancelThesis.aspx" />
+    <Content Include="supViewDefense.aspx" />
+    <Content Include="supViewProgreports.aspx" />
+    <Content Include="supViewPublications.aspx" />
+    <Content Include="ViewStudentYears.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDefenseGucian.aspx.cs">
+      <DependentUpon>AddDefenseGucian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddDefenseGucian.aspx.designer.cs">
+      <DependentUpon>AddDefenseGucian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddDefenseNonGucian.aspx.cs">
+      <DependentUpon>AddDefenseNonGucian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddDefenseNonGucian.aspx.designer.cs">
+      <DependentUpon>AddDefenseNonGucian.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,6 +171,41 @@
     </Compile>
     <Compile Include="registerSupervisor.aspx.designer.cs">
       <DependentUpon>registerSupervisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supCancelThesis.aspx.cs">
+      <DependentUpon>supCancelThesis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supCancelThesis.aspx.designer.cs">
+      <DependentUpon>supCancelThesis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supViewDefense.aspx.cs">
+      <DependentUpon>supViewDefense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supViewDefense.aspx.designer.cs">
+      <DependentUpon>supViewDefense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supViewProgreports.aspx.cs">
+      <DependentUpon>supViewProgreports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supViewProgreports.aspx.designer.cs">
+      <DependentUpon>supViewProgreports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supViewPublications.aspx.cs">
+      <DependentUpon>supViewPublications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supViewPublications.aspx.designer.cs">
+      <DependentUpon>supViewPublications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStudentYears.aspx.cs">
+      <DependentUpon>ViewStudentYears.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewStudentYears.aspx.designer.cs">
+      <DependentUpon>ViewStudentYears.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

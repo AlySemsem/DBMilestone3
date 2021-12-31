@@ -39,6 +39,8 @@ namespace Milestone3
             SupervisorRegister.ExecuteNonQuery();
             conn.Close();
 
+            Response.Redirect("profileSupervisor.aspx");
+
         }
     }
 }

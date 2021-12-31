@@ -11,7 +11,7 @@ namespace Milestone3
 {
 
 
-    public partial class profileExaminer
+    public partial class ViewStudentYears
     {
 
         /// <summary>

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
 namespace GUC_System
 {
     public partial class Login : System.Web.UI.Page
