@@ -14,7 +14,10 @@
             <asp:TextBox ID="firstName" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="Label2" runat="server" Text="Field of work"></asp:Label>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="fieldofwork" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Confirm Changes" OnClick="Button1_Click" />
             <br />
         </div>
     </form>

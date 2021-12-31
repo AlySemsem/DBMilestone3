@@ -7,21 +7,38 @@
     <title></title>
 </head>
 <body>
+    <form id="form1" runat="server">
+
     <h2>
         Examiner Profile
     </h2>
-    <form id="form1" runat="server">
 
     <div>
         <asp:Label ID="Label1" runat="server" Text="Name: "></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:Label ID="Label2" runat="server" Text="Field of work: "></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         <br />
         <br />
         <asp:Button ID="Button1" runat="server" Text="Edit Profile" OnClick="Button1_Click" />
         <br />
         <br />
+        <h3>Current Defenses</h3>
+        <br />
         <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
+        <br />
+        <asp:Button ID="Button2" runat="server" Text="Add Comment or Grade" OnClick="Button2_Click" />
+        <br />
+        <br />
+        <br />
+        <h3>Search for Thesis</h3>
+        <asp:TextBox ID="search" runat="server"></asp:TextBox>
+        <asp:Button ID="Button3" runat="server" Text="Search" OnClick="Button3_Click" />
+        <br />
+        <br />
+        <asp:GridView ID="GridView2" runat="server">
         </asp:GridView>
         <br />
 
