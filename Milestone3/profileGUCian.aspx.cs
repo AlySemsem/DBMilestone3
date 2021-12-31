@@ -17,7 +17,6 @@ namespace Milestone3
         {
             int userID = Int16.Parse(Session["userID"].ToString());
             string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            //create a new connection
             SqlConnection conn = new SqlConnection(connStr);
 
             conn.Open();
@@ -140,5 +139,48 @@ namespace Milestone3
 
         }
 
+        protected void editButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GUCianEditProfile.aspx");
+        }
+
+        protected void addProgressReport_Click(object sender, EventArgs e)
+        {
+            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
+
+            SqlCommand addReport = new SqlCommand("AddProgressReport", conn);
+            addReport.CommandType = CommandType.StoredProcedure;
+            int serialNo = Int16.Parse(thesisSerialBox.Text);
+            addReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
+            DateTime reportDate = Convert.ToDateTime(reportDateBox.Text);
+            addReport.Parameters.Add(new SqlParameter("@progressReportDate", reportDate));
+
+            conn.Open();
+            addReport.ExecuteNonQuery();
+            conn.Close();
+
+        }
+
+        protected void fillProgressReport_Click(object sender, EventArgs e)
+        {
+            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
+
+            SqlCommand fillReport = new SqlCommand("FillProgressReport", conn);
+            fillReport.CommandType = CommandType.StoredProcedure;
+            int serialNo = Int16.Parse(thesisSerialBox2.Text);
+            fillReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
+            int progressReportNo = Int16.Parse(progressReportNumberBox.Text);
+            fillReport.Parameters.Add(new SqlParameter("@progressReportNo", progressReportNo));
+            int state = Int16.Parse(stateBox.Text);
+            fillReport.Parameters.Add(new SqlParameter("@state", state));
+            String description = descriptionBox.Text;
+            fillReport.Parameters.Add(new SqlParameter("@description", description));
+
+            conn.Open();
+            fillReport.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

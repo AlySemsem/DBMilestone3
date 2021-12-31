@@ -11,7 +11,7 @@ namespace Milestone3
 {
 
 
-    public partial class profileGUCian
+    public partial class GUCianEditProfile
     {
 
         /// <summary>
@@ -24,69 +24,6 @@ namespace Milestone3
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Name;
-
-        /// <summary>
-        /// Type control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Type;
-
-        /// <summary>
-        /// Faculty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Faculty;
-
-        /// <summary>
-        /// GPA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GPA;
-
-        /// <summary>
-        /// UndergradID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UndergradID;
-
-        /// <summary>
-        /// editButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button editButton;
-
-        /// <summary>
-        /// ThesisBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ThesisBody;
-
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -96,13 +33,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// thesisSerialBox control.
+        /// firstNameBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox thesisSerialBox;
+        protected global::System.Web.UI.WebControls.TextBox firstNameBox;
 
         /// <summary>
         /// Label2 control.
@@ -114,22 +51,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// reportDateBox control.
+        /// lastNameBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox reportDateBox;
-
-        /// <summary>
-        /// addProgressReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addProgressReport;
+        protected global::System.Web.UI.WebControls.TextBox lastNameBox;
 
         /// <summary>
         /// Label3 control.
@@ -141,13 +69,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// thesisSerialBox2 control.
+        /// passBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox thesisSerialBox2;
+        protected global::System.Web.UI.WebControls.TextBox passBox;
 
         /// <summary>
         /// Label4 control.
@@ -159,13 +87,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// progressReportNumberBox control.
+        /// emailBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox progressReportNumberBox;
+        protected global::System.Web.UI.WebControls.TextBox emailBox;
 
         /// <summary>
         /// Label5 control.
@@ -177,13 +105,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// stateBox control.
+        /// addressBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox stateBox;
+        protected global::System.Web.UI.WebControls.TextBox addressBox;
 
         /// <summary>
         /// Label6 control.
@@ -195,21 +123,21 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// descriptionBox control.
+        /// typeBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descriptionBox;
+        protected global::System.Web.UI.WebControls.TextBox typeBox;
 
         /// <summary>
-        /// fillProgressReport control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button fillProgressReport;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
