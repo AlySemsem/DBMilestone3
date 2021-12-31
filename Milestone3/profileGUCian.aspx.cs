@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Milestone3
@@ -12,6 +16,129 @@ namespace Milestone3
         protected void Page_Load(object sender, EventArgs e)
         {
             int userID = Int16.Parse(Session["userID"].ToString());
+            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+            //create a new connection
+            SqlConnection conn = new SqlConnection(connStr);
+
+            conn.Open();
+            SqlCommand userInfo = new SqlCommand("viewMyProfile", conn);
+            userInfo.CommandType = CommandType.StoredProcedure;
+            userInfo.Parameters.Add(new SqlParameter("@studentId", userID));
+
+            SqlDataReader reader = userInfo.ExecuteReader();
+
+            while (reader.Read())
+            {
+                String name = reader.GetString(reader.GetOrdinal("firstName")) + " " + reader.GetString(reader.GetOrdinal("lastName"));
+                Name.Text = "Name: " + name;
+
+                if (reader.IsDBNull(reader.GetOrdinal("type")))
+                    Type.Text = "Degree: null";
+                else
+                {
+                    String degreet = reader.GetString(reader.GetOrdinal("type"));
+                    Type.Text = "Degree: " + degreet;
+                }
+
+                String Facultyt = reader.GetString(reader.GetOrdinal("faculty"));
+                Faculty.Text = "Faculty: " + Facultyt;
+
+                if (reader.IsDBNull(reader.GetOrdinal("GPA")))
+                    GPA.Text = "GPA: null";
+                else
+                {
+                    String GPAt = reader.GetString(reader.GetOrdinal("GPA"));
+                    GPA.Text = "GPA: " + GPAt;
+                }
+
+                if (reader.IsDBNull(reader.GetOrdinal("undergradID")))
+                    UndergradID.Text = "Undergraduate ID: null";
+                else
+                {
+                    String undergradIDt = reader.GetString(reader.GetOrdinal("undergradID"));
+                    UndergradID.Text = "Undergraduate ID: " + undergradIDt;
+                }
+            }
+            reader.Close();
+            DisplayThesis(conn, userID);
+            conn.Close();
+
         }
+
+        
+
+        private void DisplayThesis(SqlConnection conn, int userID)
+        {
+            SqlCommand thesisInfo = new SqlCommand("getStudentThesis", conn);
+            thesisInfo.CommandType = CommandType.StoredProcedure;
+            thesisInfo.Parameters.Add(new SqlParameter("@studentID", userID));
+
+            SqlDataReader reader = thesisInfo.ExecuteReader(CommandBehavior.CloseConnection);
+
+            Control ThesisBody = FindControl("ThesisBody");
+
+            while (reader.Read())
+            {
+                HtmlTableRow userRow = new HtmlTableRow();
+
+                HtmlTableCell serialNoCell = new HtmlTableCell();
+                serialNoCell.InnerText = reader.GetInt32(reader.GetOrdinal("serialNumber")).ToString();
+                userRow.Cells.Add(serialNoCell);
+
+                HtmlTableCell fieldCell = new HtmlTableCell();
+                fieldCell.InnerText = reader.GetString(reader.GetOrdinal("field"));
+                userRow.Cells.Add(fieldCell);
+
+                HtmlTableCell typeCell = new HtmlTableCell();
+                typeCell.InnerText = reader.GetString(reader.GetOrdinal("type"));
+                userRow.Cells.Add(typeCell);
+
+                HtmlTableCell titleCell = new HtmlTableCell();
+                titleCell.InnerText = reader.GetString(reader.GetOrdinal("title"));
+                userRow.Cells.Add(titleCell);
+
+                HtmlTableCell startDateCell = new HtmlTableCell();
+                startDateCell.InnerText = reader.GetDateTime(reader.GetOrdinal("startDate")).ToString();
+                userRow.Cells.Add(startDateCell);
+
+                HtmlTableCell endDateCell = new HtmlTableCell();
+                endDateCell.InnerText = reader.GetDateTime(reader.GetOrdinal("endDate")).ToString();
+                userRow.Cells.Add(endDateCell);
+
+                HtmlTableCell defenseDateCell = new HtmlTableCell();
+                if (reader.IsDBNull(reader.GetOrdinal("defenseDate")))
+                    defenseDateCell.InnerText = "Null";
+                else
+                {
+                    defenseDateCell.InnerText = reader.GetDateTime(reader.GetOrdinal("defenseDate")).ToString();
+                    userRow.Cells.Add(defenseDateCell);
+                }
+
+                HtmlTableCell yearsCell = new HtmlTableCell();
+                yearsCell.InnerText = reader.GetDateTime(reader.GetOrdinal("years")).ToString();
+                userRow.Cells.Add(yearsCell);
+                
+                HtmlTableCell gradeCell = new HtmlTableCell();
+                if (reader.IsDBNull(reader.GetOrdinal("grade")))
+                    gradeCell.InnerText = "Null";
+                else
+                {
+                    gradeCell.InnerText = reader.GetDecimal(reader.GetOrdinal("grade")).ToString();
+                    userRow.Cells.Add(gradeCell);
+                }
+                
+                HtmlTableCell payment_idCell = new HtmlTableCell();
+                payment_idCell.InnerText = reader.GetInt32(reader.GetOrdinal("payment_idCell")).ToString();
+                userRow.Cells.Add(payment_idCell);
+
+                HtmlTableCell extensionsCell = new HtmlTableCell();
+                extensionsCell.InnerText = reader.GetInt32(reader.GetOrdinal("extensionsCell")).ToString();
+                userRow.Cells.Add(extensionsCell);
+
+                ThesisBody.Controls.Add(userRow);
+            }
+
+        }
+
     }
 }
