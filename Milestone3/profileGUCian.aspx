@@ -77,6 +77,38 @@
         <asp:Button ID="fillProgressReport" runat="server" Text="Fill" OnClick="fillProgressReport_Click" />
             </p>
         <br />
+        <p style="font-size:20px">Add Publication:</p>
+        <br />
+        <asp:Label ID="Label7" runat="server" Text="Title: "></asp:Label>
+        <asp:TextBox ID="titleBox" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label8" runat="server" Text="Publication Date: "></asp:Label>
+        <asp:TextBox ID="pubDateBox" runat="server" type="date"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label9" runat="server" Text="Host: "></asp:Label>
+        <asp:TextBox ID="hostBox" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label10" runat="server" Text="Place: "></asp:Label>
+        <asp:TextBox ID="placeBox" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label11" runat="server" Text="Accepted: "></asp:Label>
+        <asp:DropDownList ID="acceptedList" runat="server">
+            <asp:ListItem Value="1"> Yes </asp:ListItem>
+            <asp:ListItem Value="0"> No </asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Button ID="pubAddButton" runat="server" Text="Add" OnClick="pubAddButton_Click" />
+        <br />
+        <br />
+        <p style="font-size:20px">Fill Publication:</p>
+        <br />
+        <asp:Label ID="Label12" runat="server" Text="Publication ID: "></asp:Label>
+        <asp:TextBox ID="pubIDBox" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label13" runat="server" Text="Thesis Serial Number: "></asp:Label>
+        <asp:TextBox ID="thesisSerialNoBox" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="pubLinkButton" runat="server" Text="Link" OnClick="pubLinkButton_Click" />
 
     </form>
 </body>

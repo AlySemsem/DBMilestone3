@@ -182,5 +182,48 @@ namespace Milestone3
             fillReport.ExecuteNonQuery();
             conn.Close();
         }
+
+        protected void pubAddButton_Click(object sender, EventArgs e)
+        {
+            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
+
+            SqlCommand addPub = new SqlCommand("addPublication", conn);
+            addPub.CommandType = CommandType.StoredProcedure;
+            String title = titleBox.Text;
+            addPub.Parameters.Add(new SqlParameter("@title", title));
+            DateTime pubDate = Convert.ToDateTime(pubDateBox.Text);
+            addPub.Parameters.Add(new SqlParameter("@pubDate", pubDate));
+            String host = hostBox.Text;
+            addPub.Parameters.Add(new SqlParameter("@host", host));
+            String place = placeBox.Text;
+            addPub.Parameters.Add(new SqlParameter("@place", place));
+            int accepted = Int16.Parse(acceptedList.SelectedValue);
+            addPub.Parameters.Add(new SqlParameter("@accepted", accepted));
+
+            conn.Open();
+            addPub.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
+
+        protected void pubLinkButton_Click(object sender, EventArgs e)
+        {
+            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
+
+            SqlCommand linkPub = new SqlCommand("linkPubThesis", conn);
+            linkPub.CommandType = CommandType.StoredProcedure;
+            int PubID = Int16.Parse(pubIDBox.Text);
+            linkPub.Parameters.Add(new SqlParameter("@PubID", PubID));
+            int thesisSerialNo = Int16.Parse(thesisSerialNoBox.Text);
+            linkPub.Parameters.Add(new SqlParameter("@thesisSerialNo", thesisSerialNo));
+
+            conn.Open();
+            linkPub.ExecuteNonQuery();
+            conn.Close();
+        }
     }
+
 }
