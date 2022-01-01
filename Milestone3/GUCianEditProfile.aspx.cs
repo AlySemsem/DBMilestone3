@@ -42,7 +42,13 @@ namespace Milestone3
             conn.Open();
             GucianRegister.ExecuteNonQuery();
             conn.Close();
-            Response.Redirect("profileGUCian.aspx");
+            if (Session["userID"].ToString() == "1")
+            {
+                Response.Redirect("profileGUCian.aspx");
+            }
+            else
+                Response.Redirect("profileNonGUCian.aspx");
+           ;
         }
     }
 }

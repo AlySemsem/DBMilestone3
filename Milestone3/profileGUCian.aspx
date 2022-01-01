@@ -25,7 +25,7 @@
             <br>
             <asp:Label ID="GPA" runat="server"></asp:Label>
             <br>
-            <asp:Label ID="UndergradID" OnClick="edit" runat="server"></asp:Label>
+            <asp:Label ID="UndergradID" runat="server"></asp:Label>
             <br>
             <br>
             <asp:Button ID="editButton" runat="server" Text="Edit Profile" OnClick="editButton_Click" />
@@ -35,17 +35,17 @@
         <table border ="1">
                 <thead>
                 <tr>
-                    <th>serialNumber</th>
-                    <th>field</th>
-                    <th>type</th>
-                    <th>title</th>
-                    <th>startDate</th>
-                    <th>endDate</th>
-                    <th>defenseDate</th>
-                    <th>years</th>
-                    <th>grade</th>
-                    <th>payment_id</th>
-                    <th>noOfExtensions</th>
+                    <th>Serial Number</th>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Title</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Defense Date</th>
+                    <th>Years</th>
+                    <th>Grade</th>
+                    <th>Payment ID</th>
+                    <th>Number Of Extensions</th>
                  </tr>
                  </thead>
                 <tbody id="ThesisBody" runat="server">

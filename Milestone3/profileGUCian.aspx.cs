@@ -15,6 +15,8 @@ namespace Milestone3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["GUCian"] = "1";
+
             int userID = Int16.Parse(Session["userID"].ToString());
             string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
@@ -50,13 +52,6 @@ namespace Milestone3
                     GPA.Text = "GPA: " + GPAt;
                 }
 
-                if (reader.IsDBNull(reader.GetOrdinal("undergradID")))
-                    UndergradID.Text = "Undergraduate ID: null";
-                else
-                {
-                    String undergradIDt = reader.GetString(reader.GetOrdinal("undergradID"));
-                    UndergradID.Text = "Undergraduate ID: " + undergradIDt;
-                }
             }
             reader.Close();
             DisplayThesis(conn, userID);
