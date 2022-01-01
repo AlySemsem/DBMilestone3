@@ -15,7 +15,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            <p style="font-size:50px">Student Profile</p>
+            <p style="font-size:50px"><strong>Student Profile</strong></p>
         <p>
             <asp:Label ID="Name" runat="server"></asp:Label>
             <br>
@@ -31,7 +31,7 @@
             <asp:Button ID="editButton" runat="server" Text="Edit Profile" OnClick="editButton_Click" />
             <br>
             <br>
-           <p style="font-size:20px">My Theses:</p></p>
+           <p style="font-size:20px"><strong>My Theses:</strong></p></p>
         <table border ="1">
                 <thead>
                 <tr>
@@ -52,7 +52,7 @@
                 </tbody>
             </table>
         <br />
-        <p style="font-size:20px">Add Progress Report:</p>
+        <p style="font-size:20px"><strong>Add Progress Report:</strong></p>
             <asp:Label ID="Label1" runat="server" Text="Thesis Serial Number: "></asp:Label>
             <asp:TextBox ID="thesisSerialBox" runat="server"></asp:TextBox>
         <br />
@@ -61,7 +61,7 @@
         <br />
         <asp:Button ID="addProgressReport" runat="server" Text="Add" OnClick="addProgressReport_Click" />
             </p>
-        <p style="font-size:20px">Fill Progress Report:</p>
+        <p style="font-size:20px"><strong>Fill Progress Report:</strong></p>
             <asp:Label ID="Label3" runat="server" Text="Thesis Serial Number: "></asp:Label>
             <asp:TextBox ID="thesisSerialBox2" runat="server"></asp:TextBox>
         <br />
@@ -77,7 +77,7 @@
         <asp:Button ID="fillProgressReport" runat="server" Text="Fill" OnClick="fillProgressReport_Click" />
             </p>
         <br />
-        <p style="font-size:20px">Add Publication:</p>
+        <p style="font-size:20px"><strong>Add Publication:</strong></p>
         <br />
         <asp:Label ID="Label7" runat="server" Text="Title: "></asp:Label>
         <asp:TextBox ID="titleBox" runat="server"></asp:TextBox>
@@ -100,7 +100,7 @@
         <asp:Button ID="pubAddButton" runat="server" Text="Add" OnClick="pubAddButton_Click" />
         <br />
         <br />
-        <p style="font-size:20px">Fill Publication:</p>
+        <p style="font-size:20px"><strong>Link Publication:</strong></p>
         <br />
         <asp:Label ID="Label12" runat="server" Text="Publication ID: "></asp:Label>
         <asp:TextBox ID="pubIDBox" runat="server"></asp:TextBox>
