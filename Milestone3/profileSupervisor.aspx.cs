@@ -24,21 +24,25 @@ namespace Milestone3
 
         protected void Publications(object sender, EventArgs e)
         {
+            Session["errMsg"] = "";
             Response.Redirect("supViewPublications.aspx");
         }
 
         protected void Defense(object sender, EventArgs e)
         {
+            Session["msg"] = "";
             Response.Redirect("supViewDefense.aspx");
         }
 
         protected void PR(object sender, EventArgs e)
         {
+            Session["msg"] = "";
             Response.Redirect("supViewProgreports.aspx");
         }
 
         protected void Thesis(object sender, EventArgs e)
         {
+            Session["errMsg"] = "";
             Response.Redirect("supCancelThesis.aspx");
         }
     }

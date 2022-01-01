@@ -18,12 +18,14 @@ namespace Milestone3
 
         protected void GUCian_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddDefenseGucian");
+            Session["errMsg"] = "";
+            Response.Redirect("AddDefenseGucian.aspx");
         }
 
         protected void nonGucian_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddDefenseNonGucian");
+            Session["errMsg"] = "";
+            Response.Redirect("AddDefenseNonGucian.aspx");
         }
     }
 }

@@ -22,32 +22,13 @@ namespace Milestone3
             StudentsYears.Parameters.Add(new SqlParameter("@supervisorID", Session["userID"]));
 
             conn.Open();
-            SqlDataReader rdr = StudentsYears.ExecuteReader(CommandBehavior.CloseConnection);
-            while (rdr.Read())
-            {
-                String studentFirstName = rdr.GetString(rdr.GetOrdinal("firstName"));
-                String studentLastName = rdr.GetString(rdr.GetOrdinal("lastName"));
-                String yearsSpent = rdr.GetString(rdr.GetOrdinal("years"));
-                Label firstName = new Label();
-                Label lastName = new Label();
-                Label years = new Label();
-                firstName.Text = studentFirstName;
-                lastName.Text = studentLastName;
-                years.Text = yearsSpent;
-                form1.Controls.Add(firstName);
-                form1.Controls.Add(lastName);
-                form1.Controls.Add(years);
-                conn.Close();
-            }
 
-            //StudentsYears.ExecuteNonQuery();     
-            //SqlDataReader reader = StudentsYears.ExecuteReader();
-            //  GridView.Datasource = reader;
-            //GridView.DataBind();
-            //GridView1.DataSource = ADONET_methods.DisplaySchemaTables();
-            //GridView1.DataBind();
-            //DisplaySchemaTables()
+            SqlDataReader reader = StudentsYears.ExecuteReader();
+            GridView1.DataSource = reader;
+            GridView1.DataBind();
+            conn.Close();
         }
+
 
     }
 }

@@ -12,70 +12,69 @@ namespace Milestone3
 {
     public partial class supViewPublications : System.Web.UI.Page
     {
+        String err1 = "Incorrect student ID, please choose a different one";
+        String err2 = "Student ID cannot be empty, please enter a value";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ErrorBox.Text = Session["errMsg"].ToString();
         }
 
-        protected void studentIDbtn_Click(object sender, EventArgs e)
+        protected void view_Click(object sender, EventArgs e)
         {
-            int studentID = Int16.Parse(studentID_TB.Text);
-
-            //Session["studentID"] = studentID;
-            //Response.Redirect("supViewPublications2.aspx");
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
-
-            SqlCommand viewPub = new SqlCommand("ViewAStudentPublications", conn);
-            viewPub.CommandType = CommandType.StoredProcedure;
-            viewPub.Parameters.Add(new SqlParameter("@StudentID", studentID));
-
-            //conn.Open();
-            //SqlDataReader rdr = viewPub.ExecuteReader();
-            //GridView1.DataSource = rdr;
-            //GridView1.DataBind();
-            //conn.Close();
-
-            conn.Open();
-            SqlDataReader rdr = viewPub.ExecuteReader(CommandBehavior.CloseConnection);
-            while (rdr.Read())
-
+            try
             {
-                String pubID = rdr.GetString(rdr.GetOrdinal("id"));
-                String pubTitle = rdr.GetString(rdr.GetOrdinal("title"));
-                String pubDate = rdr.GetString(rdr.GetOrdinal("dateOfPublication"));
-                String pubPlace = rdr.GetString(rdr.GetOrdinal("place"));
-                String pubIsAccepted = rdr.GetString(rdr.GetOrdinal("accepted"));
-                String pubHost = rdr.GetString(rdr.GetOrdinal("host"));
+                string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                SqlConnection conn = new SqlConnection(connStr);
 
-                if (pubIsAccepted == "0")
-                    pubIsAccepted = "No";
-                else pubIsAccepted = "Yes";
+                if (studentID_TB.Text == "")
+                {
+                    Session["errMsg"] = err2;
+                    Response.Redirect("supViewPublications.aspx");
+                }
+                else
+                {
 
-                Label id = new Label();
-                Label title = new Label();
-                Label dateOfPublication = new Label();
-                Label place = new Label();
-                Label accepted = new Label();
-                Label host = new Label();
+                    int studentID = Int16.Parse(studentID_TB.Text);
+                    Session["StudenID"] = studentID;
 
-                id.Text = pubID;
-                title.Text = pubTitle;
-                dateOfPublication.Text = pubDate;
-                place.Text = pubPlace;
-                accepted.Text = pubIsAccepted;
-                host.Text = pubHost;
+                    SqlCommand viewPub = new SqlCommand("ViewAStudentPublications", conn);
+                    viewPub.CommandType = CommandType.StoredProcedure;
+                    viewPub.Parameters.Add(new SqlParameter("@StudentID", studentID));
 
-                form1.Controls.Add(id);
-                form1.Controls.Add(title);
-                form1.Controls.Add(dateOfPublication);
-                form1.Controls.Add(place);
-                form1.Controls.Add(accepted);
-                form1.Controls.Add(host);
+                    SqlCommand correctStudent = new SqlCommand("isCorrectStudent", conn);
+                    correctStudent.CommandType = CommandType.StoredProcedure;
+                    correctStudent.Parameters.Add(new SqlParameter("@supID", Session["userID"]));
+                    correctStudent.Parameters.Add(new SqlParameter("@StudentID", studentID));
 
-                conn.Close();
+                    SqlParameter successP = correctStudent.Parameters.Add("@success", System.Data.SqlDbType.Int);
+                    successP.Direction = System.Data.ParameterDirection.Output;
+
+                    conn.Open();
+                    correctStudent.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (successP.Value.ToString() == "0")
+                    {
+                        Session["errMsg"] = err1;
+                        Response.Redirect("supViewPublications.aspx");
+                    }
+                    else
+                    {
+                        conn.Open();
+                        SqlDataReader reader = viewPub.ExecuteReader();
+                        GridView1.DataSource = reader;
+                        GridView1.DataBind();
+                        conn.Close();
+                        ErrorBox.Visible = false;
+                    }
+                }
             }
-           // Response.Redirect("profileExaminer.aspx");
-        }
+
+            catch
+            {
+                ErrorBox.Text = "Invalid input";
+            }
+        }      
     }
 }

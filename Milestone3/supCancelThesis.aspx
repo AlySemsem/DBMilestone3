@@ -11,7 +11,9 @@
         <div>
             <asp:Label ID="TSN" runat="server" Text="Thesis Serial Number"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TSN1" runat="server"></asp:TextBox>
+            &nbsp;
+            <asp:Label ID="messageBox" runat="server" Text=""></asp:Label>
             <br />
             <br />
             <asp:Button ID="Confirm" runat="server" Text="Confirm" OnClick="Confirm_Click" />

@@ -11,17 +11,20 @@ namespace GUC_System
 {
     public partial class Login : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
 
         }
         protected void login(object sender, EventArgs e)
         {
+
             string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
             //create a new connection
             SqlConnection conn = new SqlConnection(connStr);
 
-            int id = Int16.Parse(ID.Text);
+            int id = Int16.Parse(idTB.Text);
             String pass = password.Text;
 
             SqlCommand loginproc = new SqlCommand("userLogin", conn);

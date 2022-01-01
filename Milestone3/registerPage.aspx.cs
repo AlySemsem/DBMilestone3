@@ -29,6 +29,7 @@ namespace Milestone3
 
         protected void registerSupervisorF(object sender, EventArgs e)
         {
+            Session["errMsg"] = "";
             Response.Redirect("registerSupervisor.aspx");
         }
 

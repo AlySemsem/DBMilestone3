@@ -33,13 +33,22 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label ThesisSerialNoTB;
 
         /// <summary>
-        /// TextBox1 control.
+        /// TSN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox TSN;
+
+        /// <summary>
+        /// errTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errTB;
 
         /// <summary>
         /// DefenseDateC control.
@@ -51,31 +60,31 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label DefenseDateC;
 
         /// <summary>
-        /// Calendar1 control.
+        /// DD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.TextBox DD;
 
         /// <summary>
-        /// DefenseLocationTB control.
+        /// DefD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DefenseLocationTB;
+        protected global::System.Web.UI.WebControls.Label DefD;
 
         /// <summary>
-        /// TextBox3 control.
+        /// DefLoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox DefLoc;
 
         /// <summary>
         /// eName control.
@@ -87,13 +96,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label eName;
 
         /// <summary>
-        /// TextBox4 control.
+        /// ExamName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox ExamName;
 
         /// <summary>
         /// pass control.
@@ -105,13 +114,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label pass;
 
         /// <summary>
-        /// TextBox6 control.
+        /// passTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox passTB;
 
         /// <summary>
         /// Label2 control.
@@ -150,13 +159,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label fow;
 
         /// <summary>
-        /// TextBox5 control.
+        /// FoWork control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox FoWork;
 
         /// <summary>
         /// Submitbtn control.
