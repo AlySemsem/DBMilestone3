@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GUC_System
+namespace Milestone3
 {
 
 
-    public partial class Login
+    public partial class supViewPublications
     {
 
         /// <summary>
@@ -33,39 +33,39 @@ namespace GUC_System
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// emailTB control.
+        /// studentID_TB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailTB;
+        protected global::System.Web.UI.WebControls.TextBox studentID_TB;
 
         /// <summary>
-        /// password control.
+        /// view control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.Button view;
 
         /// <summary>
-        /// Button1 control.
+        /// ErrorBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label ErrorBox;
 
         /// <summary>
-        /// Button2 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

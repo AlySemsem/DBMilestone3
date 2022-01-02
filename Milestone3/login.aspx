@@ -13,7 +13,7 @@
             <br />
             <br />
             Email:<br />
-            <asp:TextBox ID="ID" runat="server"></asp:TextBox>
+            <asp:TextBox ID="emailTB" runat="server"></asp:TextBox>
             <br />
             <br />
             Password:<br />
@@ -21,12 +21,9 @@
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="login" Text="Login" />
-            
             <br />
             <br />
-
             <asp:Button ID="Button2" runat="server" OnClick="registerPage" Text="Don't have an account? Register" />
-
         </div>
     </form>
 </body>
