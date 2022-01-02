@@ -132,6 +132,24 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.TextBox reportDateBox;
 
         /// <summary>
+        /// Label14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label14;
+
+        /// <summary>
+        /// reportNumBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reportNumBox;
+
+        /// <summary>
         /// addProgressReport control.
         /// </summary>
         /// <remarks>
