@@ -16,9 +16,6 @@ namespace Milestone3
 
         }
 
-
-   
-
         protected void register_Click(object sender, EventArgs e)
         {
             string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
