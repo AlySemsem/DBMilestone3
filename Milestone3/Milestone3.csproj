@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addCommentOrGrade.aspx" />
+    <Content Include="editExaminerProfile.aspx" />
     <Content Include="login.aspx" />
     <Content Include="profileAdmin.aspx" />
     <Content Include="profileExaminer.aspx" />
@@ -81,6 +83,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addCommentOrGrade.aspx.cs">
+      <DependentUpon>addCommentOrGrade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addCommentOrGrade.aspx.designer.cs">
+      <DependentUpon>addCommentOrGrade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editExaminerProfile.aspx.cs">
+      <DependentUpon>editExaminerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editExaminerProfile.aspx.designer.cs">
+      <DependentUpon>editExaminerProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

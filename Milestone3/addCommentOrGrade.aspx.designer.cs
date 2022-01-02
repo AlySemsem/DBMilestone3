@@ -11,8 +11,17 @@ namespace Milestone3
 {
 
 
-    public partial class profileExaminer
+    public partial class addCommentOrGrade
     {
+
+        /// <summary>
+        /// tableBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableBody;
 
         /// <summary>
         /// form1 control.
@@ -33,13 +42,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Label3 control.
+        /// SD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.TextBox SD;
 
         /// <summary>
         /// Label2 control.
@@ -51,6 +60,33 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
+        /// DT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DT;
+
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// newGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox newGrade;
+
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -60,22 +96,13 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Button1 control.
+        /// newComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox newComment;
 
         /// <summary>
         /// Button2 control.
@@ -87,15 +114,6 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox search;
-
-        /// <summary>
         /// Button3 control.
         /// </summary>
         /// <remarks>
@@ -105,12 +123,12 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
-        /// GridView2 control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
