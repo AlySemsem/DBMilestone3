@@ -12,8 +12,8 @@
         <asp:Label ID="Label1" runat="server" Text="Please Log in"></asp:Label>
             <br />
             <br />
-            ID:<br />
-            <asp:TextBox ID="idTB" runat="server"></asp:TextBox>
+            Email:<br />
+            <asp:TextBox ID="emailTB" runat="server"></asp:TextBox>
             <br />
             <br />
             Password:<br />
