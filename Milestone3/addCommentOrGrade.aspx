@@ -34,6 +34,9 @@
         <asp:Label ID="Label4" runat="server" Text="New Comment "></asp:Label>
         <asp:TextBox ID="newComment" runat="server"></asp:TextBox>
         <br />
+        <asp:Label ID="error" runat="server" Text="" style="color:red"></asp:Label>
+        <asp:Label ID="error2" runat="server" Text="" style="color:red"></asp:Label>
+        <br />
         <br />
         <asp:Button ID="Button2" runat="server" Text="Edit Grade" OnClick="Button2_Click" />
         <asp:Button ID="Button3" runat="server" Text="Edit Comment" OnClick="Button3_Click" />

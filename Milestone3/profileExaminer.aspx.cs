@@ -40,13 +40,18 @@ namespace Milestone3
             {
                 String examinerName = reader2.GetString(reader2.GetOrdinal("name"));
                 String examinerField = reader2.GetString(reader2.GetOrdinal("fieldOfWork"));
+                String examinerEmail = reader2.GetString(reader2.GetOrdinal("email"));
+                String examinerPassword = reader2.GetString(reader2.GetOrdinal("password"));
 
                 Label3.Text = examinerName;
                 Label4.Text = examinerField;
+                Label6.Text = examinerEmail;
+                Label8.Text = examinerPassword;
 
                 Session["examinerName"] = examinerName;
                 Session["examinerField"] = examinerField;
-                ;
+                Session["examinerEmail"] = examinerEmail;
+                Session["examinerPassword"] = examinerPassword;
             }
             conn.Close();
             

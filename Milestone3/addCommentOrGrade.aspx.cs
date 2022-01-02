@@ -22,6 +22,9 @@ namespace Milestone3
             conn.Open();
             viewTable();
             conn.Close();
+
+            error.Text = Session["msg"].ToString();
+            error2.Text = Session["msg"].ToString();
         }
 
         protected void viewTable()
@@ -83,30 +86,58 @@ namespace Milestone3
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            SqlCommand addGrade = new SqlCommand("AddDefenseGrade", conn);
-            addGrade.CommandType = CommandType.StoredProcedure;
-            addGrade.Parameters.Add(new SqlParameter("@ThesisSerialNo", SD.Text));
-            addGrade.Parameters.Add(new SqlParameter("@DefenseDate", DT.Text));
-            addGrade.Parameters.Add(new SqlParameter("@grade", newGrade.Text));
+            try
+            {
+                if (Label1.Text == "" || Label2.Text == "" || Label3.Text == "") {
+                    error.Text = "No fields should be empty.";
+                }
+                else {
+                    SqlCommand addGrade = new SqlCommand("AddDefenseGrade", conn);
+                    addGrade.CommandType = CommandType.StoredProcedure;
+                    addGrade.Parameters.Add(new SqlParameter("@ThesisSerialNo", SD.Text));
+                    addGrade.Parameters.Add(new SqlParameter("@DefenseDate", DT.Text));
+                    addGrade.Parameters.Add(new SqlParameter("@grade", newGrade.Text));
 
-            conn.Open();
-            addGrade.ExecuteNonQuery();
-            conn.Close();
-            Response.Redirect("addCommentOrGrade.aspx");
+                    conn.Open();
+                    addGrade.ExecuteNonQuery();
+                    conn.Close();
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("addCommentOrGrade.aspx");
+                }
+            }
+            catch
+            {
+                error.Text = "Invalid input.";
+            }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            SqlCommand addComment = new SqlCommand("AddCommentsGrade", conn);
-            addComment.CommandType = CommandType.StoredProcedure;
-            addComment.Parameters.Add(new SqlParameter("@ThesisSerialNo", SD.Text));
-            addComment.Parameters.Add(new SqlParameter("@DefenseDate", DT.Text));
-            addComment.Parameters.Add(new SqlParameter("@comments", newComment.Text));
+            try
+            {
+                if (Label1.Text == "" || Label2.Text == "" || Label4.Text == "")
+                {
+                    error2.Text = "No fields should be empty.";
+                }
+                else
+                {
+                    SqlCommand addComment = new SqlCommand("AddCommentsGrade", conn);
+                    addComment.CommandType = CommandType.StoredProcedure;
+                    addComment.Parameters.Add(new SqlParameter("@ThesisSerialNo", SD.Text));
+                    addComment.Parameters.Add(new SqlParameter("@DefenseDate", DT.Text));
+                    addComment.Parameters.Add(new SqlParameter("@comments", newComment.Text));
 
-            conn.Open();
-            addComment.ExecuteNonQuery();
-            conn.Close();
-            Response.Redirect("addCommentOrGrade.aspx");
+                    conn.Open();
+                    addComment.ExecuteNonQuery();
+                    conn.Close();
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("addCommentOrGrade.aspx");
+                }
+            }
+            catch
+            {
+                error2.Text = "Invalid input.";
+            }
         }
     }
 }

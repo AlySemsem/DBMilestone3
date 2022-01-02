@@ -16,6 +16,14 @@
             <asp:Label ID="Label2" runat="server" Text="Field of work"></asp:Label>
             <asp:TextBox ID="fieldofwork" runat="server"></asp:TextBox>
             <br />
+            <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label>
+            <asp:TextBox ID="email" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Password"></asp:Label>
+            <asp:TextBox ID="password" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="errorEdit" runat="server" Text="" style="color:red"></asp:Label>
+            <br />
             <br />
             <asp:Button ID="Button1" runat="server" Text="Confirm Changes" OnClick="Button1_Click" />
             <br />

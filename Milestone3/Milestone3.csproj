@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addCommentOrGrade.aspx" />
+    <Content Include="editExaminerProfile.aspx" />
     <Content Include="GUCianEditProfile.aspx" />
     <Content Include="AddDefenseGucian.aspx" />
     <Content Include="AddDefenseNonGucian.aspx" />
@@ -89,13 +91,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addCommentOrGrade.aspx.cs">
+      <DependentUpon>addCommentOrGrade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addCommentOrGrade.aspx.designer.cs">
+      <DependentUpon>addCommentOrGrade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editExaminerProfile.aspx.cs">
+      <DependentUpon>editExaminerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editExaminerProfile.aspx.designer.cs">
+      <DependentUpon>editExaminerProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUCianEditProfile.aspx.cs">
       <DependentUpon>GUCianEditProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GUCianEditProfile.aspx.designer.cs">
       <DependentUpon>GUCianEditProfile.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="AddDefenseGucian.aspx.cs">
       <DependentUpon>AddDefenseGucian.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

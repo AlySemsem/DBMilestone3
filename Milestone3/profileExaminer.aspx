@@ -15,14 +15,19 @@
 
     <div>
         <asp:Label ID="Label1" runat="server" Text="Name: "></asp:Label>
-        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
         <br />
         <asp:Label ID="Label2" runat="server" Text="Field of work: "></asp:Label>
-        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+        <br />
+        <asp:Label ID="Label5" runat="server" Text="Email: "></asp:Label>
+        <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+        <br />
+        <asp:Label ID="Label7" runat="server" Text="Password: "></asp:Label>
+        <asp:Label ID="Label8" runat="server" Text=""></asp:Label>
         <br />
         <br />
         <asp:Button ID="Button1" runat="server" Text="Edit Profile" OnClick="Button1_Click" />
-        <br />
         <br />
         <h3>Current Defenses</h3>
         <br />

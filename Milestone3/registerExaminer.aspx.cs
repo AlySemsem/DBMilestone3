@@ -25,6 +25,7 @@ namespace Milestone3
             SqlConnection conn = new SqlConnection(connStr);
             int isnational;
             String name = ExaminerName.Text;
+            String email = Email.Text;
             int serialno = Int16.Parse(ThesisSerialNo.Text);
             String pass = password.Text;
             String field = fieldOfWork.Text;
@@ -45,12 +46,13 @@ namespace Milestone3
             ExaminerRegister.Parameters.Add(new SqlParameter("@ExaminerName", name));
             ExaminerRegister.Parameters.Add(new SqlParameter("@National", isnational));
             ExaminerRegister.Parameters.Add(new SqlParameter("@fieldOfWork", field));
+            ExaminerRegister.Parameters.Add(new SqlParameter("@email", email));
 
             conn.Open();
             ExaminerRegister.ExecuteNonQuery();
             conn.Close();
 
-            Response.Redirect("profileExaminer.aspx");
+            Response.Redirect("login.aspx");
         }
 
         protected void RadioButton1_CheckedChanged(object sender, EventArgs e)

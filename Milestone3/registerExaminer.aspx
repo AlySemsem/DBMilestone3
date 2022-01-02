@@ -15,6 +15,10 @@
             <asp:Label ID="Label2E" runat="server" Text="Examiner Name"></asp:Label>
             <br />
             <asp:TextBox ID="ExaminerName" runat="server"></asp:TextBox>
+             <br />
+             <asp:Label ID="Label2" runat="server" Text="Email"></asp:Label>
+             <br />
+             <asp:TextBox ID="Email" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="Label3E" runat="server" Text="Thesis Serial Number"></asp:Label>
             <br />
