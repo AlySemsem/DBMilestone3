@@ -48,7 +48,7 @@ namespace Milestone3
                     GPA.Text = "GPA: null";
                 else
                 {
-                    String GPAt = reader1.GetString(reader1.GetOrdinal("GPA"));
+                    String GPAt = reader1.GetDecimal(reader1.GetOrdinal("GPA")).ToString();
                     GPA.Text = "GPA: " + GPAt;
                 }
 
@@ -68,11 +68,11 @@ namespace Milestone3
                 HtmlTableRow userRow = new HtmlTableRow();
 
                 HtmlTableCell courseIDCell = new HtmlTableCell();
-                courseIDCell.InnerText = reader2.GetInt32(reader2.GetOrdinal("Course ID")).ToString();
+                courseIDCell.InnerText = reader2.GetInt32(reader2.GetOrdinal("cid")).ToString();
                 userRow.Cells.Add(courseIDCell);
 
                 HtmlTableCell gradeCell = new HtmlTableCell();
-                gradeCell.InnerText = reader2.GetString(reader2.GetOrdinal("Grade"));
+                gradeCell.InnerText = reader2.GetDecimal(reader2.GetOrdinal("Grade")).ToString();
                 userRow.Cells.Add(gradeCell);
 
                 courseBody.Controls.Add(userRow);
@@ -139,7 +139,7 @@ namespace Milestone3
                 }
 
                 HtmlTableCell yearsCell = new HtmlTableCell();
-                yearsCell.InnerText = reader.GetDateTime(reader.GetOrdinal("years")).ToString();
+                yearsCell.InnerText = reader.GetInt32(reader.GetOrdinal("years")).ToString();
                 userRow.Cells.Add(yearsCell);
 
                 HtmlTableCell gradeCell = new HtmlTableCell();
@@ -152,11 +152,11 @@ namespace Milestone3
                 }
 
                 HtmlTableCell payment_idCell = new HtmlTableCell();
-                payment_idCell.InnerText = reader.GetInt32(reader.GetOrdinal("payment_idCell")).ToString();
+                payment_idCell.InnerText = reader.GetInt32(reader.GetOrdinal("payment_id")).ToString();
                 userRow.Cells.Add(payment_idCell);
 
                 HtmlTableCell extensionsCell = new HtmlTableCell();
-                extensionsCell.InnerText = reader.GetInt32(reader.GetOrdinal("extensionsCell")).ToString();
+                extensionsCell.InnerText = reader.GetInt32(reader.GetOrdinal("noOfExtensions")).ToString();
                 userRow.Cells.Add(extensionsCell);
 
                 ThesisBody.Controls.Add(userRow);
@@ -174,7 +174,11 @@ namespace Milestone3
         {
             try
             {
-                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                if (thesisSerialBox.Text == "" || reportDateBox.Text == "")
+                {
+                    errorPrgress.Text = "No fields should be empty.";
+                }
+                string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                     SqlConnection conn = new SqlConnection(connStr);
 
                     SqlCommand addReport = new SqlCommand("AddProgressReport", conn);
@@ -183,8 +187,12 @@ namespace Milestone3
                     addReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
                     DateTime reportDate = Convert.ToDateTime(reportDateBox.Text);
                     addReport.Parameters.Add(new SqlParameter("@progressReportDate", reportDate));
+                    int userID = Int16.Parse(Session["userID"].ToString());
+                    addReport.Parameters.Add(new SqlParameter("@studentID", userID));
+                    String reportNum = reportNumBox.Text;
+                    addReport.Parameters.Add(new SqlParameter("@progressReportNo", reportNum));
 
-                    conn.Open();
+                conn.Open();
                     addReport.ExecuteNonQuery();
                     conn.Close();
                 Session["msg"] = "Operation done successfully";
@@ -201,6 +209,10 @@ namespace Milestone3
         {
             try
             {
+                if (thesisSerialBox2.Text == "" || progressReportNumberBox.Text == "" || stateBox.Text == "" || descriptionBox.Text == "")
+                {
+                    errorFill.Text = "No fields should be empty.";
+                }
                 string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                 SqlConnection conn = new SqlConnection(connStr);
 
@@ -214,6 +226,8 @@ namespace Milestone3
                 fillReport.Parameters.Add(new SqlParameter("@state", state));
                 String description = descriptionBox.Text;
                 fillReport.Parameters.Add(new SqlParameter("@description", description));
+                int userID = Int16.Parse(Session["userID"].ToString());
+                fillReport.Parameters.Add(new SqlParameter("@studentID", userID));
 
                 conn.Open();
                 fillReport.ExecuteNonQuery();
@@ -231,6 +245,11 @@ namespace Milestone3
         {
             try
             {
+
+                if (titleBox.Text == "" || pubDateBox.Text == "" || hostBox.Text == "" || placeBox.Text == "")
+                {
+                    errorPublication.Text = "No fields should be empty.";
+                }
                 string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                 SqlConnection conn = new SqlConnection(connStr);
 
@@ -262,6 +281,10 @@ namespace Milestone3
         {
             try
             {
+                if (pubIDBox.Text == "" || thesisSerialNoBox.Text == "")
+                {
+                    errorLink.Text = "No fields should be empty.";
+                }
                 string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                 SqlConnection conn = new SqlConnection(connStr);
 

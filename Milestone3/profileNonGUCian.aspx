@@ -64,6 +64,9 @@
         <asp:Label ID="Label2" runat="server" Text="Progress Report Date: "></asp:Label>
         <asp:TextBox ID="reportDateBox" runat="server" type="date"></asp:TextBox>
         <br />
+        <asp:Label ID="Label14" runat="server" Text="Progress Report Number: "></asp:Label>
+        <asp:TextBox ID="reportNumBox" runat="server"></asp:TextBox>
+        <br />
         <asp:Button ID="addProgressReport" runat="server" Text="Add" OnClick="addProgressReport_Click" />
             </p>
         <p style="font-size:20px"><strong>Fill Progress Report:</strong></p>
