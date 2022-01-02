@@ -87,6 +87,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="GUCianEditProfile.aspx.cs">
+      <DependentUpon>GUCianEditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUCianEditProfile.aspx.designer.cs">
+      <DependentUpon>GUCianEditProfile.aspx</DependentUpon>
+	</Compile>
+>>>>>>> Stashed changes
     <Compile Include="AddDefenseGucian.aspx.cs">
       <DependentUpon>AddDefenseGucian.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
