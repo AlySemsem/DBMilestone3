@@ -216,7 +216,7 @@ namespace Milestone3
             }
             catch
             {
-                errorProgress.Text = "Invalid Input";
+                errorFill.Text = "Invalid Input";
             }
         }
 

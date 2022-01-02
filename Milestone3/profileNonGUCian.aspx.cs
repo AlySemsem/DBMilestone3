@@ -174,7 +174,11 @@ namespace Milestone3
         {
             try
             {
-                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                if (thesisSerialBox.Text == "" || reportDateBox.Text == "")
+                {
+                    errorPrgress.Text = "No fields should be empty.";
+                }
+                string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                     SqlConnection conn = new SqlConnection(connStr);
 
                     SqlCommand addReport = new SqlCommand("AddProgressReport", conn);
@@ -205,6 +209,10 @@ namespace Milestone3
         {
             try
             {
+                if (thesisSerialBox2.Text == "" || progressReportNumberBox.Text == "" || stateBox.Text == "" || descriptionBox.Text == "")
+                {
+                    errorFill.Text = "No fields should be empty.";
+                }
                 string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                 SqlConnection conn = new SqlConnection(connStr);
 
@@ -237,6 +245,11 @@ namespace Milestone3
         {
             try
             {
+
+                if (titleBox.Text == "" || pubDateBox.Text == "" || hostBox.Text == "" || placeBox.Text == "")
+                {
+                    errorPublication.Text = "No fields should be empty.";
+                }
                 string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                 SqlConnection conn = new SqlConnection(connStr);
 
@@ -268,6 +281,10 @@ namespace Milestone3
         {
             try
             {
+                if (pubIDBox.Text == "" || thesisSerialNoBox.Text == "")
+                {
+                    errorLink.Text = "No fields should be empty.";
+                }
                 string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
                 SqlConnection conn = new SqlConnection(connStr);
 
