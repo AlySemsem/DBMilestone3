@@ -18,11 +18,13 @@ namespace Milestone3
 
         protected void registerGUCianF(object sender, EventArgs e)
         {
+            Session["errMsg"] = "";
             Response.Redirect("registerGUCian.aspx");
         }
 
         protected void registerNonGUCianF(object sender, EventArgs e)
         {
+            Session["errMsg"] = "";
             Response.Redirect("registerNonGUCian.aspx");
 
         }
@@ -35,6 +37,7 @@ namespace Milestone3
 
         protected void registerExaminerF(object sender, EventArgs e)
         {
+            Session["errMsg"] = "";
             Response.Redirect("registerExaminer.aspx");
         }
     }

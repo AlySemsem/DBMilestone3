@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="addCommentOrGrade.aspx" />
     <Content Include="editExaminerProfile.aspx" />
+    <Content Include="addMobileNumber.aspx" />
     <Content Include="GUCianEditProfile.aspx" />
     <Content Include="AddDefenseGucian.aspx" />
     <Content Include="AddDefenseNonGucian.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="AddDefenseNonGucian.aspx.designer.cs">
       <DependentUpon>AddDefenseNonGucian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addMobileNumber.aspx.cs">
+      <DependentUpon>addMobileNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addMobileNumber.aspx.designer.cs">
+      <DependentUpon>addMobileNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

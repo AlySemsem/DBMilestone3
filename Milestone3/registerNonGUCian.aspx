@@ -11,6 +11,8 @@
         <div>
             <asp:Label ID="Label1N" runat="server" Text="NonGUCian Register Page"></asp:Label>
             <br />
+            <asp:Label ID="ErrorBox" runat="server" Text= "" Forecolor="red" Font-Bold="true" Font-Size="Large"> </asp:Label>
+            <br />
             <br />
             <asp:Label ID="Label2N" runat="server" Text="First Name"></asp:Label>
             <br />
