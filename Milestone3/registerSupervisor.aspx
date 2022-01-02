@@ -12,7 +12,7 @@
             <asp:Label ID="Label1S" runat="server" Text="Supervisor Register Page"></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label2S" runat="server" Text="First Name"></asp:Label>
+            <asp:Label ID="Label2S" runat="server" Text="Name"></asp:Label>
             <br />
             <asp:TextBox ID="firstNameS" runat="server"></asp:TextBox>
             <br />

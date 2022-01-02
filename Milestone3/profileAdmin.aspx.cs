@@ -18,7 +18,7 @@ namespace Milestone3
         {
             string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
             conn = new SqlConnection(connStr);
-            
+
             conn.Open();
             DisplaySupervisors();
             conn.Close();
@@ -40,8 +40,8 @@ namespace Milestone3
             SqlCommand supervisorList = new SqlCommand("AdminListSup", conn);
             supervisorList.CommandType = CommandType.StoredProcedure;
 
-             SqlDataReader reader = supervisorList.ExecuteReader(CommandBehavior.CloseConnection);
-            
+            SqlDataReader reader = supervisorList.ExecuteReader(CommandBehavior.CloseConnection);
+
 
             Control supervisorBody = FindControl("supervisorBody");
 
@@ -91,7 +91,14 @@ namespace Milestone3
                 thesisRow.Cells.Add(serialNumberCell);
 
                 HtmlTableCell fieldCell = new HtmlTableCell();
-                fieldCell.InnerText = reader.GetString(reader.GetOrdinal("field"));
+                try
+                {
+                    fieldCell.InnerText = reader.GetString(reader.GetOrdinal("field"));
+                }
+                catch
+                {
+                    fieldCell.InnerText = "NULL";
+                }
                 thesisRow.Cells.Add(fieldCell);
 
                 HtmlTableCell typeCell = new HtmlTableCell();
@@ -112,7 +119,14 @@ namespace Milestone3
                 thesisRow.Cells.Add(EdateCell);
 
                 HtmlTableCell defencedateCell = new HtmlTableCell();
-                defencedateCell.InnerText = reader.GetDateTime(reader.GetOrdinal("defenseDate")).ToString("MM/dd/yyyy");
+                try
+                {
+                    defencedateCell.InnerText = reader.GetDateTime(reader.GetOrdinal("defenseDate")).ToString("MM/dd/yyyy");
+                }
+                catch
+                {
+                    defencedateCell.InnerText = "NULL";
+                }
                 thesisRow.Cells.Add(defencedateCell);
 
                 HtmlTableCell yearsCell = new HtmlTableCell();
@@ -120,7 +134,14 @@ namespace Milestone3
                 thesisRow.Cells.Add(yearsCell);
 
                 HtmlTableCell gradeCell = new HtmlTableCell();
-                gradeCell.InnerText = reader.GetDecimal(reader.GetOrdinal("grade")).ToString();
+                try
+                {
+                    gradeCell.InnerText = reader.GetDecimal(reader.GetOrdinal("grade")).ToString();
+                }
+                catch
+                {
+                    gradeCell.InnerText = "NULL";
+                }
                 thesisRow.Cells.Add(gradeCell);
 
                 HtmlTableCell paymentidCell = new HtmlTableCell();
@@ -130,12 +151,19 @@ namespace Milestone3
                 }
                 catch
                 {
-                    paymentidCell.InnerText = "Null";
-                }    
+                    paymentidCell.InnerText = "NULL";
+                }
                 thesisRow.Cells.Add(paymentidCell);
 
                 HtmlTableCell extensionsCell = new HtmlTableCell();
-                extensionsCell.InnerText = reader.GetInt32(reader.GetOrdinal("noOfExtensions")).ToString();
+                try
+                {
+                    extensionsCell.InnerText = reader.GetInt32(reader.GetOrdinal("noOfExtensions")).ToString();
+                }
+                catch
+                {
+                    extensionsCell.InnerText = "NULL";
+                }
                 thesisRow.Cells.Add(extensionsCell);
 
                 thesisBody.Controls.Add(thesisRow);
@@ -143,14 +171,14 @@ namespace Milestone3
         }
         protected void OngoingThesisCount()
         {
-            SqlCommand ongoingCount= new SqlCommand("AdminViewOnGoingTheses", conn);
+            SqlCommand ongoingCount = new SqlCommand("AdminViewOnGoingTheses", conn);
             ongoingCount.CommandType = CommandType.StoredProcedure;
 
             SqlParameter thesisCount = new SqlParameter("@thesesCount", SqlDbType.Int);
             thesisCount.Direction = ParameterDirection.Output;
             ongoingCount.Parameters.Add(thesisCount);
 
-           SqlDataReader reader =  ongoingCount.ExecuteReader(CommandBehavior.CloseConnection);
+            SqlDataReader reader = ongoingCount.ExecuteReader(CommandBehavior.CloseConnection);
 
             Label1.Text += thesisCount.Value.ToString();
 
@@ -162,9 +190,9 @@ namespace Milestone3
             string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
 
-            int thesis = Int16.Parse(ThesisID.Text);
-            int amount = Int16.Parse(amountT.Text); 
-            int installments = Int16.Parse(NoIns.Text);
+            int thesis = Int32.Parse(ThesisID.Text);
+            int amount = Int32.Parse(amountT.Text);
+            int installments = Int32.Parse(NoIns.Text);
             decimal fundpercentage = decimal.Parse(fundperc.Text);
 
             SqlCommand ThesisPayment = new SqlCommand("AdminIssueThesisPayment", conn);
@@ -177,6 +205,7 @@ namespace Milestone3
             conn.Open();
             ThesisPayment.ExecuteNonQuery();
             conn.Close();
+            Response.Redirect("profileAdmin.aspx");
         }
 
         protected void increase_Click(object sender, EventArgs e)
@@ -192,6 +221,25 @@ namespace Milestone3
 
             conn.Open();
             extensionInc.ExecuteNonQuery();
+            conn.Close();
+            Response.Redirect("profileAdmin.aspx");
+        }
+
+        protected void IssueIns_Click(object sender, EventArgs e)
+        {
+            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
+
+            int payid = Int32.Parse(paymentId.Text);
+            DateTime defdate = DateTime.Parse(defencedate.Text);
+
+            SqlCommand installmenstIssue = new SqlCommand("AdminIssueInstallPayment2", conn);
+            installmenstIssue.CommandType = System.Data.CommandType.StoredProcedure;
+            installmenstIssue.Parameters.Add(new SqlParameter("@paymentID", payid));
+            installmenstIssue.Parameters.Add(new SqlParameter("@InstallStartDate", defdate));
+
+            conn.Open();
+            installmenstIssue.ExecuteNonQuery();
             conn.Close();
             Response.Redirect("profileAdmin.aspx");
         }

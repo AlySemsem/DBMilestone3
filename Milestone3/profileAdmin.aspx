@@ -27,7 +27,7 @@
                 </tbody>
             </table>
             <h3>All Available Theses</h3>
-            <br />
+            
             <table border ="1">
                 <thead>
                 <tr>
@@ -73,11 +73,22 @@
             <br />
             <br />
             <h3>Issue Installments</h3>
+            <asp:Label ID="Label8" runat="server" Text="Payment ID"></asp:Label>
+            <br />
+            <asp:TextBox ID="paymentId" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label7" runat="server" Text="Defence Date"></asp:Label>
+            <br />
+            <asp:TextBox ID="defencedate" runat="server" type ="date" ></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="installmentsissue" runat="server" Text="Issue" OnClick="IssueIns_Click" Width="167px"  />
             <br />
             <h3>Increase Number Of Extensions</h3>
             <asp:Label ID="Label6" runat="server" Text="Thesis Serial Number: "></asp:Label>
             <br />
             <asp:TextBox ID="ThesisID2" runat="server"></asp:TextBox>
+            <br />
             <br />
             <asp:Button ID="incExt" runat="server" Text="Increment Extensions" OnClick="increase_Click" Width="168px" />
         </div>
