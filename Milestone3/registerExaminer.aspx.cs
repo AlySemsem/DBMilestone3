@@ -49,6 +49,8 @@ namespace Milestone3
             conn.Open();
             ExaminerRegister.ExecuteNonQuery();
             conn.Close();
+
+            Response.Redirect("profileExaminer.aspx");
         }
 
         protected void RadioButton1_CheckedChanged(object sender, EventArgs e)

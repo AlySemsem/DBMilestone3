@@ -23,8 +23,8 @@ namespace Milestone3
         {
             string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
-            try
-            {
+            //try
+            //{
                 if (firstNameS.Text == "" || lastNameS.Text == "" || passwordS.Text == "" || facultyS.Text == "" || emailS.Text == "")
                 {
                     ErrorBox.Text = err1;
@@ -69,11 +69,11 @@ namespace Milestone3
                         Response.Redirect("login.aspx");
                     }
                 }
-            }
-            catch
-            {
-                ErrorBox.Text = "invalid input";
-            }
+            //}
+            //catch
+            //{
+                //.Text = "invalid input";
+            //}
         }
     }
 }
