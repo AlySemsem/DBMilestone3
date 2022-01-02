@@ -48,7 +48,7 @@ namespace Milestone3
                     GPA.Text = "GPA: null";
                 else
                 {
-                    String GPAt = reader.GetString(reader.GetOrdinal("GPA"));
+                    String GPAt = reader.GetDecimal(reader.GetOrdinal("GPA")).ToString();
                     GPA.Text = "GPA: " + GPAt;
                 }
 
@@ -113,7 +113,7 @@ namespace Milestone3
                 }
 
                 HtmlTableCell yearsCell = new HtmlTableCell();
-                yearsCell.InnerText = reader.GetDateTime(reader.GetOrdinal("years")).ToString();
+                yearsCell.InnerText = reader.GetInt32(reader.GetOrdinal("years")).ToString();
                 userRow.Cells.Add(yearsCell);
                 
                 HtmlTableCell gradeCell = new HtmlTableCell();
@@ -126,11 +126,11 @@ namespace Milestone3
                 }
                 
                 HtmlTableCell payment_idCell = new HtmlTableCell();
-                payment_idCell.InnerText = reader.GetInt32(reader.GetOrdinal("payment_idCell")).ToString();
+                payment_idCell.InnerText = reader.GetInt32(reader.GetOrdinal("payment_id")).ToString();
                 userRow.Cells.Add(payment_idCell);
 
                 HtmlTableCell extensionsCell = new HtmlTableCell();
-                extensionsCell.InnerText = reader.GetInt32(reader.GetOrdinal("extensionsCell")).ToString();
+                extensionsCell.InnerText = reader.GetInt32(reader.GetOrdinal("noOfExtensions")).ToString();
                 userRow.Cells.Add(extensionsCell);
 
                 ThesisBody.Controls.Add(userRow);
@@ -162,6 +162,10 @@ namespace Milestone3
                     addReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
                     DateTime reportDate = Convert.ToDateTime(reportDateBox.Text);
                     addReport.Parameters.Add(new SqlParameter("@progressReportDate", reportDate));
+                    int userID = Int16.Parse(Session["userID"].ToString());
+                    addReport.Parameters.Add(new SqlParameter("@studentID", userID));
+                    String reportNum = reportNumBox.Text;
+                    addReport.Parameters.Add(new SqlParameter("@progressReportNo", reportNum));
 
                     conn.Open();
                     addReport.ExecuteNonQuery();
@@ -200,8 +204,10 @@ namespace Milestone3
                     fillReport.Parameters.Add(new SqlParameter("@state", state));
                     String description = descriptionBox.Text;
                     fillReport.Parameters.Add(new SqlParameter("@description", description));
+                    int userID = Int16.Parse(Session["userID"].ToString());
+                    fillReport.Parameters.Add(new SqlParameter("@studentID", userID));
 
-                    conn.Open();
+                conn.Open();
                     fillReport.ExecuteNonQuery();
                     conn.Close();
                     Session["msg"] = "Operation done successfully";
