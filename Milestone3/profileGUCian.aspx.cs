@@ -57,6 +57,10 @@ namespace Milestone3
             DisplayThesis(conn, userID);
             conn.Close();
 
+            errorProgress.Text = Session["msg"].ToString();
+            errorFill.Text = Session["msg"].ToString();
+            errorPublication.Text = Session["msg"].ToString();
+            errorLink.Text = Session["msg"].ToString();
         }
 
         
@@ -141,83 +145,145 @@ namespace Milestone3
 
         protected void addProgressReport_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                if (thesisSerialBox.Text == "" || reportDateBox.Text == "")
+                {
+                    errorProgress.Text = "No fields should be empty.";
+                }
+                else
+                {
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            SqlCommand addReport = new SqlCommand("AddProgressReport", conn);
-            addReport.CommandType = CommandType.StoredProcedure;
-            int serialNo = Int16.Parse(thesisSerialBox.Text);
-            addReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
-            DateTime reportDate = Convert.ToDateTime(reportDateBox.Text);
-            addReport.Parameters.Add(new SqlParameter("@progressReportDate", reportDate));
+                    SqlCommand addReport = new SqlCommand("AddProgressReport", conn);
+                    addReport.CommandType = CommandType.StoredProcedure;
+                    int serialNo = Int16.Parse(thesisSerialBox.Text);
+                    addReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
+                    DateTime reportDate = Convert.ToDateTime(reportDateBox.Text);
+                    addReport.Parameters.Add(new SqlParameter("@progressReportDate", reportDate));
 
-            conn.Open();
-            addReport.ExecuteNonQuery();
-            conn.Close();
+                    conn.Open();
+                    addReport.ExecuteNonQuery();
+                    conn.Close();
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("profileGUCian.aspx");
 
+                }
+            }
+            catch
+            {
+                errorProgress.Text = "Invalid Input";
+            }
         }
 
         protected void fillProgressReport_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                if (thesisSerialBox2.Text == "" || progressReportNumberBox.Text == "" || stateBox.Text == "" || descriptionBox.Text == "") 
+                { 
+                    errorFill.Text = "No fields should be empty.";
+                } 
+                else {
 
-            SqlCommand fillReport = new SqlCommand("FillProgressReport", conn);
-            fillReport.CommandType = CommandType.StoredProcedure;
-            int serialNo = Int16.Parse(thesisSerialBox2.Text);
-            fillReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
-            int progressReportNo = Int16.Parse(progressReportNumberBox.Text);
-            fillReport.Parameters.Add(new SqlParameter("@progressReportNo", progressReportNo));
-            int state = Int16.Parse(stateBox.Text);
-            fillReport.Parameters.Add(new SqlParameter("@state", state));
-            String description = descriptionBox.Text;
-            fillReport.Parameters.Add(new SqlParameter("@description", description));
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            conn.Open();
-            fillReport.ExecuteNonQuery();
-            conn.Close();
+                    SqlCommand fillReport = new SqlCommand("FillProgressReport", conn);
+                    fillReport.CommandType = CommandType.StoredProcedure;
+                    int serialNo = Int16.Parse(thesisSerialBox2.Text);
+                    fillReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
+                    int progressReportNo = Int16.Parse(progressReportNumberBox.Text);
+                    fillReport.Parameters.Add(new SqlParameter("@progressReportNo", progressReportNo));
+                    int state = Int16.Parse(stateBox.Text);
+                    fillReport.Parameters.Add(new SqlParameter("@state", state));
+                    String description = descriptionBox.Text;
+                    fillReport.Parameters.Add(new SqlParameter("@description", description));
+
+                    conn.Open();
+                    fillReport.ExecuteNonQuery();
+                    conn.Close();
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("profileGUCian.aspx");
+                }
+            }
+            catch
+            {
+                errorProgress.Text = "Invalid Input";
+            }
         }
 
         protected void pubAddButton_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                if (titleBox.Text == "" || pubDateBox.Text == "" || hostBox.Text == "" || placeBox.Text == "")
+                {
+                    errorPublication.Text = "No fields should be empty.";
+                }
+                else {
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            SqlCommand addPub = new SqlCommand("addPublication", conn);
-            addPub.CommandType = CommandType.StoredProcedure;
-            String title = titleBox.Text;
-            addPub.Parameters.Add(new SqlParameter("@title", title));
-            DateTime pubDate = Convert.ToDateTime(pubDateBox.Text);
-            addPub.Parameters.Add(new SqlParameter("@pubDate", pubDate));
-            String host = hostBox.Text;
-            addPub.Parameters.Add(new SqlParameter("@host", host));
-            String place = placeBox.Text;
-            addPub.Parameters.Add(new SqlParameter("@place", place));
-            int accepted = Int16.Parse(acceptedList.SelectedValue);
-            addPub.Parameters.Add(new SqlParameter("@accepted", accepted));
+                    SqlCommand addPub = new SqlCommand("addPublication", conn);
+                    addPub.CommandType = CommandType.StoredProcedure;
+                    String title = titleBox.Text;
+                    addPub.Parameters.Add(new SqlParameter("@title", title));
+                    DateTime pubDate = Convert.ToDateTime(pubDateBox.Text);
+                    addPub.Parameters.Add(new SqlParameter("@pubDate", pubDate));
+                    String host = hostBox.Text;
+                    addPub.Parameters.Add(new SqlParameter("@host", host));
+                    String place = placeBox.Text;
+                    addPub.Parameters.Add(new SqlParameter("@place", place));
+                    int accepted = Int16.Parse(acceptedList.SelectedValue);
+                    addPub.Parameters.Add(new SqlParameter("@accepted", accepted));
 
-            conn.Open();
-            addPub.ExecuteNonQuery();
-            conn.Close();
-
+                    conn.Open();
+                    addPub.ExecuteNonQuery();
+                    conn.Close();
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("profileGUCian.aspx");
+                }
+            }
+            catch
+            {
+                errorPublication.Text = "Invalid Input";
+            }
 
         }
 
         protected void pubLinkButton_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                if (pubIDBox.Text == "" || thesisSerialNoBox.Text == "")
+                {
+                    errorLink.Text = "No fields should be empty.";
+                }
+                else {
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            SqlCommand linkPub = new SqlCommand("linkPubThesis", conn);
-            linkPub.CommandType = CommandType.StoredProcedure;
-            int PubID = Int16.Parse(pubIDBox.Text);
-            linkPub.Parameters.Add(new SqlParameter("@PubID", PubID));
-            int thesisSerialNo = Int16.Parse(thesisSerialNoBox.Text);
-            linkPub.Parameters.Add(new SqlParameter("@thesisSerialNo", thesisSerialNo));
+                    SqlCommand linkPub = new SqlCommand("linkPubThesis", conn);
+                    linkPub.CommandType = CommandType.StoredProcedure;
+                    int PubID = Int16.Parse(pubIDBox.Text);
+                    linkPub.Parameters.Add(new SqlParameter("@PubID", PubID));
+                    int thesisSerialNo = Int16.Parse(thesisSerialNoBox.Text);
+                    linkPub.Parameters.Add(new SqlParameter("@thesisSerialNo", thesisSerialNo));
 
-            conn.Open();
-            linkPub.ExecuteNonQuery();
-            conn.Close();
+                    conn.Open();
+                    linkPub.ExecuteNonQuery();
+                    conn.Close();
+
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("profileGUCian.aspx");
+                }
+            }
+            catch
+            {
+                errorLink.Text = "Invalid Input";
+            }
         }
     }
 

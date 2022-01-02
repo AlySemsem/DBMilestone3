@@ -81,6 +81,11 @@ namespace Milestone3
             DisplayThesis(conn, userID);
             conn.Close();
 
+            errorPrgress.Text = Session["msg"].ToString();
+            errorFill.Text = Session["msg"].ToString();
+            errorPublication.Text = Session["msg"].ToString();
+            errorLink.Text = Session["msg"].ToString();
+
         }
 
 
@@ -91,6 +96,7 @@ namespace Milestone3
             thesisInfo.CommandType = CommandType.StoredProcedure;
             thesisInfo.Parameters.Add(new SqlParameter("@studentID", userID));
 
+            conn.Open();
             SqlDataReader reader = thesisInfo.ExecuteReader(CommandBehavior.CloseConnection);
 
             Control ThesisBody = FindControl("ThesisBody");
@@ -155,6 +161,7 @@ namespace Milestone3
 
                 ThesisBody.Controls.Add(userRow);
             }
+            conn.Close();
 
         }
 
@@ -165,83 +172,114 @@ namespace Milestone3
 
         protected void addProgressReport_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            SqlCommand addReport = new SqlCommand("AddProgressReport", conn);
-            addReport.CommandType = CommandType.StoredProcedure;
-            int serialNo = Int16.Parse(thesisSerialBox.Text);
-            addReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
-            DateTime reportDate = Convert.ToDateTime(reportDateBox.Text);
-            addReport.Parameters.Add(new SqlParameter("@progressReportDate", reportDate));
+                    SqlCommand addReport = new SqlCommand("AddProgressReport", conn);
+                    addReport.CommandType = CommandType.StoredProcedure;
+                    int serialNo = Int16.Parse(thesisSerialBox.Text);
+                    addReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
+                    DateTime reportDate = Convert.ToDateTime(reportDateBox.Text);
+                    addReport.Parameters.Add(new SqlParameter("@progressReportDate", reportDate));
 
-            conn.Open();
-            addReport.ExecuteNonQuery();
-            conn.Close();
+                    conn.Open();
+                    addReport.ExecuteNonQuery();
+                    conn.Close();
+                Session["msg"] = "Operation done successfully";
+                Response.Redirect("profileNonGUCian.aspx");
+            }
+            catch
+            {
+                errorPrgress.Text = "Invalid Input";
+            }
 
         }
 
         protected void fillProgressReport_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                SqlConnection conn = new SqlConnection(connStr);
 
-            SqlCommand fillReport = new SqlCommand("FillProgressReport", conn);
-            fillReport.CommandType = CommandType.StoredProcedure;
-            int serialNo = Int16.Parse(thesisSerialBox2.Text);
-            fillReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
-            int progressReportNo = Int16.Parse(progressReportNumberBox.Text);
-            fillReport.Parameters.Add(new SqlParameter("@progressReportNo", progressReportNo));
-            int state = Int16.Parse(stateBox.Text);
-            fillReport.Parameters.Add(new SqlParameter("@state", state));
-            String description = descriptionBox.Text;
-            fillReport.Parameters.Add(new SqlParameter("@description", description));
+                SqlCommand fillReport = new SqlCommand("FillProgressReport", conn);
+                fillReport.CommandType = CommandType.StoredProcedure;
+                int serialNo = Int16.Parse(thesisSerialBox2.Text);
+                fillReport.Parameters.Add(new SqlParameter("@thesisSerialNo", serialNo));
+                int progressReportNo = Int16.Parse(progressReportNumberBox.Text);
+                fillReport.Parameters.Add(new SqlParameter("@progressReportNo", progressReportNo));
+                int state = Int16.Parse(stateBox.Text);
+                fillReport.Parameters.Add(new SqlParameter("@state", state));
+                String description = descriptionBox.Text;
+                fillReport.Parameters.Add(new SqlParameter("@description", description));
 
-            conn.Open();
-            fillReport.ExecuteNonQuery();
-            conn.Close();
+                conn.Open();
+                fillReport.ExecuteNonQuery();
+                conn.Close();
+                Session["msg"] = "Operation done successfully";
+                Response.Redirect("profileNonGUCian.aspx");
+            }
+            catch
+            {
+                errorFill.Text = "Invalid Input";
+            }
         }
 
         protected void pubAddButton_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                SqlConnection conn = new SqlConnection(connStr);
 
-            SqlCommand addPub = new SqlCommand("addPublication", conn);
-            addPub.CommandType = CommandType.StoredProcedure;
-            String title = titleBox.Text;
-            addPub.Parameters.Add(new SqlParameter("@title", title));
-            DateTime pubDate = Convert.ToDateTime(pubDateBox.Text);
-            addPub.Parameters.Add(new SqlParameter("@pubDate", pubDate));
-            String host = hostBox.Text;
-            addPub.Parameters.Add(new SqlParameter("@host", host));
-            String place = placeBox.Text;
-            addPub.Parameters.Add(new SqlParameter("@place", place));
-            int accepted = Int16.Parse(acceptedList.SelectedValue);
-            addPub.Parameters.Add(new SqlParameter("@accepted", accepted));
+                SqlCommand addPub = new SqlCommand("addPublication", conn);
+                addPub.CommandType = CommandType.StoredProcedure;
+                String title = titleBox.Text;
+                addPub.Parameters.Add(new SqlParameter("@title", title));
+                DateTime pubDate = Convert.ToDateTime(pubDateBox.Text);
+                addPub.Parameters.Add(new SqlParameter("@pubDate", pubDate));
+                String host = hostBox.Text;
+                addPub.Parameters.Add(new SqlParameter("@host", host));
+                String place = placeBox.Text;
+                addPub.Parameters.Add(new SqlParameter("@place", place));
+                int accepted = Int16.Parse(acceptedList.SelectedValue);
+                addPub.Parameters.Add(new SqlParameter("@accepted", accepted));
 
-            conn.Open();
-            addPub.ExecuteNonQuery();
-            conn.Close();
-
+                conn.Open();
+                addPub.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch
+            {
+                errorPublication.Text = "Invalid input";
+            }
 
         }
 
         protected void pubLinkButton_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                SqlConnection conn = new SqlConnection(connStr);
 
-            SqlCommand linkPub = new SqlCommand("linkPubThesis", conn);
-            linkPub.CommandType = CommandType.StoredProcedure;
-            int PubID = Int16.Parse(pubIDBox.Text);
-            linkPub.Parameters.Add(new SqlParameter("@PubID", PubID));
-            int thesisSerialNo = Int16.Parse(thesisSerialNoBox.Text);
-            linkPub.Parameters.Add(new SqlParameter("@thesisSerialNo", thesisSerialNo));
+                SqlCommand linkPub = new SqlCommand("linkPubThesis", conn);
+                linkPub.CommandType = CommandType.StoredProcedure;
+                int PubID = Int16.Parse(pubIDBox.Text);
+                linkPub.Parameters.Add(new SqlParameter("@PubID", PubID));
+                int thesisSerialNo = Int16.Parse(thesisSerialNoBox.Text);
+                linkPub.Parameters.Add(new SqlParameter("@thesisSerialNo", thesisSerialNo));
 
-            conn.Open();
-            linkPub.ExecuteNonQuery();
-            conn.Close();
+                conn.Open();
+                linkPub.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch
+            {
+                errorLink.Text = "Invalid input.";
+            }
         }
     }
 }

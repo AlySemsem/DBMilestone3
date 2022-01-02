@@ -87,6 +87,15 @@ namespace Milestone3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl courseBody;
 
         /// <summary>
+        /// errorPrgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorPrgress;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace Milestone3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addProgressReport;
+
+        /// <summary>
+        /// errorFill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorFill;
 
         /// <summary>
         /// Label3 control.
@@ -211,6 +229,15 @@ namespace Milestone3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button fillProgressReport;
+
+        /// <summary>
+        /// errorPublication control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorPublication;
 
         /// <summary>
         /// Label7 control.
@@ -310,6 +337,15 @@ namespace Milestone3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button pubAddButton;
+
+        /// <summary>
+        /// errorLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorLink;
 
         /// <summary>
         /// Label12 control.

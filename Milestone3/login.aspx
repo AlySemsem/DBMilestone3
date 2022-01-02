@@ -20,6 +20,9 @@
             <asp:TextBox ID="password" runat="server"></asp:TextBox>
             <br />
             <br />
+            <asp:Label ID="loginError" runat="server" Text="" style="color:red"></asp:Label>
+            <br />
+            <br />
             <asp:Button ID="Button1" runat="server" OnClick="login" Text="Login" />
             <br />
             <br />

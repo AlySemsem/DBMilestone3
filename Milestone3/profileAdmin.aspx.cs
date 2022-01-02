@@ -31,7 +31,9 @@ namespace Milestone3
             OngoingThesisCount();
             conn.Close();
 
-
+            errorIssueThesis.Text = Session["msg"].ToString();
+            errorIssueInstallments.Text = Session["msg"].ToString();
+            errorIncreaseExtensions.Text = Session["msg"].ToString();
 
         }
 
@@ -180,68 +182,108 @@ namespace Milestone3
 
             SqlDataReader reader = ongoingCount.ExecuteReader(CommandBehavior.CloseConnection);
 
-            Label1.Text += thesisCount.Value.ToString();
+            count.Text = thesisCount.Value.ToString();
 
 
         }
 
         protected void Issue_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                if (ThesisID.Text == "" || amountT.Text == "" || NoIns.Text == "" || fundperc.Text == "") {
+                    errorIssueThesis.Text = "No fields should be empty.";
+                } 
+                else {
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            int thesis = Int32.Parse(ThesisID.Text);
-            int amount = Int32.Parse(amountT.Text);
-            int installments = Int32.Parse(NoIns.Text);
-            decimal fundpercentage = decimal.Parse(fundperc.Text);
+                    int thesis = Int32.Parse(ThesisID.Text);
+                    int amount = Int32.Parse(amountT.Text);
+                    int installments = Int32.Parse(NoIns.Text);
+                    decimal fundpercentage = decimal.Parse(fundperc.Text);
 
-            SqlCommand ThesisPayment = new SqlCommand("AdminIssueThesisPayment", conn);
-            ThesisPayment.CommandType = System.Data.CommandType.StoredProcedure;
-            ThesisPayment.Parameters.Add(new SqlParameter("@ThesisSerialNo", thesis));
-            ThesisPayment.Parameters.Add(new SqlParameter("@amount", amount));
-            ThesisPayment.Parameters.Add(new SqlParameter("@noOfInstallments", installments));
-            ThesisPayment.Parameters.Add(new SqlParameter("@fundPercentage", fundpercentage));
+                    SqlCommand ThesisPayment = new SqlCommand("AdminIssueThesisPayment", conn);
+                    ThesisPayment.CommandType = System.Data.CommandType.StoredProcedure;
+                    ThesisPayment.Parameters.Add(new SqlParameter("@ThesisSerialNo", thesis));
+                    ThesisPayment.Parameters.Add(new SqlParameter("@amount", amount));
+                    ThesisPayment.Parameters.Add(new SqlParameter("@noOfInstallments", installments));
+                    ThesisPayment.Parameters.Add(new SqlParameter("@fundPercentage", fundpercentage));
 
-            conn.Open();
-            ThesisPayment.ExecuteNonQuery();
-            conn.Close();
-            Response.Redirect("profileAdmin.aspx");
+                    conn.Open();
+                    ThesisPayment.ExecuteNonQuery();
+                    conn.Close();
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("profileAdmin.aspx");
+                }
+            } 
+            catch
+            {
+                errorIssueThesis.Text = "Invalid Input";
+            }
         }
 
         protected void increase_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                if (ThesisID2.Text == "")
+                {
+                    errorIncreaseExtensions.Text = "No fields should be empty.";
+                }
+                else {
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            int thesis = Int32.Parse(ThesisID2.Text);
+                    int thesis = Int32.Parse(ThesisID2.Text);
 
-            SqlCommand extensionInc = new SqlCommand("AdminUpdateExtension", conn);
-            extensionInc.CommandType = System.Data.CommandType.StoredProcedure;
-            extensionInc.Parameters.Add(new SqlParameter("@ThesisSerialNo", thesis));
+                    SqlCommand extensionInc = new SqlCommand("AdminUpdateExtension", conn);
+                    extensionInc.CommandType = System.Data.CommandType.StoredProcedure;
+                    extensionInc.Parameters.Add(new SqlParameter("@ThesisSerialNo", thesis));
 
-            conn.Open();
-            extensionInc.ExecuteNonQuery();
-            conn.Close();
-            Response.Redirect("profileAdmin.aspx");
+                    conn.Open();
+                    extensionInc.ExecuteNonQuery();
+                    conn.Close();
+                    Response.Redirect("profileAdmin.aspx");
+                }
+            } catch
+            {
+                errorIncreaseExtensions.Text = "Invalid Input";
+            }
         }
 
         protected void IssueIns_Click(object sender, EventArgs e)
         {
-            string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
-            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                if (paymentId.Text == "" || defencedate.Text == "")
+                {
+                    errorIssueInstallments.Text = "No fields should be empty.";
+                }
+                else
+                {
+                    string connStr = WebConfigurationManager.ConnectionStrings["PostGradOffice"].ToString();
+                    SqlConnection conn = new SqlConnection(connStr);
 
-            int payid = Int32.Parse(paymentId.Text);
-            DateTime defdate = DateTime.Parse(defencedate.Text);
+                    int payid = Int32.Parse(paymentId.Text);
+                    DateTime defdate = DateTime.Parse(defencedate.Text);
 
-            SqlCommand installmenstIssue = new SqlCommand("AdminIssueInstallPayment2", conn);
-            installmenstIssue.CommandType = System.Data.CommandType.StoredProcedure;
-            installmenstIssue.Parameters.Add(new SqlParameter("@paymentID", payid));
-            installmenstIssue.Parameters.Add(new SqlParameter("@InstallStartDate", defdate));
+                    SqlCommand installmenstIssue = new SqlCommand("AdminIssueInstallPayment2", conn);
+                    installmenstIssue.CommandType = System.Data.CommandType.StoredProcedure;
+                    installmenstIssue.Parameters.Add(new SqlParameter("@paymentID", payid));
+                    installmenstIssue.Parameters.Add(new SqlParameter("@InstallStartDate", defdate));
 
-            conn.Open();
-            installmenstIssue.ExecuteNonQuery();
-            conn.Close();
-            Response.Redirect("profileAdmin.aspx");
+                    conn.Open();
+                    installmenstIssue.ExecuteNonQuery();
+                    conn.Close();
+                    Session["msg"] = "Operation done successfully";
+                    Response.Redirect("profileAdmin.aspx");
+                }
+            }
+            catch
+            {
+                errorIssueInstallments.Text = "Invalid Input";
+            }
         }
     }
 }

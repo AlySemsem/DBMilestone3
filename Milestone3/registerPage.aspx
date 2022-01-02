@@ -8,7 +8,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <a href="registerPage.aspx">registerPage.aspx</a>
         <div>
             <asp:Button ID="Button1" runat="server" Text="GUCian" onclick="registerGUCianF"/>
             <asp:Button ID="Button2" runat="server" Text="NonGUCian" onclick="registerNonGUCianF"/>

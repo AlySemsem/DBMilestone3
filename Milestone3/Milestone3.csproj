@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="GUCianEditProfile.aspx.designer.cs">
       <DependentUpon>GUCianEditProfile.aspx</DependentUpon>
+	</Compile>
     <Compile Include="AddDefenseGucian.aspx.cs">
       <DependentUpon>AddDefenseGucian.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

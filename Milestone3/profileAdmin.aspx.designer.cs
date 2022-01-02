@@ -51,6 +51,24 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// count control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label count;
+
+        /// <summary>
+        /// errorIssueThesis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorIssueThesis;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -132,6 +150,15 @@ namespace Milestone3
         protected global::System.Web.UI.WebControls.Button registerN;
 
         /// <summary>
+        /// errorIssueInstallments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorIssueInstallments;
+
+        /// <summary>
         /// Label8 control.
         /// </summary>
         /// <remarks>
@@ -175,6 +202,15 @@ namespace Milestone3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button installmentsissue;
+
+        /// <summary>
+        /// errorIncreaseExtensions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorIncreaseExtensions;
 
         /// <summary>
         /// Label6 control.

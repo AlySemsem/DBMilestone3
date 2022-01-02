@@ -50,8 +50,12 @@
             </table>
             <br />
             <asp:Label ID="Label1" runat="server" Text="On Going Theses Count: "></asp:Label>
+            <asp:Label ID="count" runat="server" Text=""></asp:Label>
             <br />
             <h3>Issue Thesis Payment</h3>
+            <asp:Label ID="errorIssueThesis" runat="server" Text="" style="color:red"></asp:Label>
+            <br />
+            <br />
             <asp:Label ID="Label2" runat="server" Text="Thesis Serial Number: "></asp:Label>
             <br />
             <asp:TextBox ID="ThesisID" runat="server"></asp:TextBox>
@@ -73,6 +77,9 @@
             <br />
             <br />
             <h3>Issue Installments</h3>
+            <asp:Label ID="errorIssueInstallments" runat="server" Text="" style="color:red"></asp:Label>
+            <br />
+            <br />
             <asp:Label ID="Label8" runat="server" Text="Payment ID"></asp:Label>
             <br />
             <asp:TextBox ID="paymentId" runat="server"></asp:TextBox>
@@ -85,6 +92,9 @@
             <asp:Button ID="installmentsissue" runat="server" Text="Issue" OnClick="IssueIns_Click" Width="167px"  />
             <br />
             <h3>Increase Number Of Extensions</h3>
+            <asp:Label ID="errorIncreaseExtensions" runat="server" Text="" style="color:red"></asp:Label>
+            <br />
+            <br />
             <asp:Label ID="Label6" runat="server" Text="Thesis Serial Number: "></asp:Label>
             <br />
             <asp:TextBox ID="ThesisID2" runat="server"></asp:TextBox>

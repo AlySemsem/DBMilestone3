@@ -53,6 +53,9 @@
             </table>
         <br />
         <p style="font-size:20px"><strong>Add Progress Report:</strong></p>
+            <p style="font-size:20px">
+                <asp:Label ID="errorProgress" runat="server" Text="" style="color:red"></asp:Label>
+                </p>
             <asp:Label ID="Label1" runat="server" Text="Thesis Serial Number: "></asp:Label>
             <asp:TextBox ID="thesisSerialBox" runat="server"></asp:TextBox>
         <br />
@@ -62,6 +65,9 @@
         <asp:Button ID="addProgressReport" runat="server" Text="Add" OnClick="addProgressReport_Click" />
             </p>
         <p style="font-size:20px"><strong>Fill Progress Report:</strong></p>
+            <p style="font-size:20px">
+                <asp:Label ID="errorFill" runat="server" Text="" style="color:red"></asp:Label>
+                </p>
             <asp:Label ID="Label3" runat="server" Text="Thesis Serial Number: "></asp:Label>
             <asp:TextBox ID="thesisSerialBox2" runat="server"></asp:TextBox>
         <br />
@@ -78,6 +84,9 @@
             </p>
         <br />
         <p style="font-size:20px"><strong>Add Publication:</strong></p>
+            <p style="font-size:20px">
+                <asp:Label ID="errorPublication" runat="server" Text="" style="color:red"></asp:Label>
+                </p>
         <br />
         <asp:Label ID="Label7" runat="server" Text="Title: "></asp:Label>
         <asp:TextBox ID="titleBox" runat="server"></asp:TextBox>
@@ -101,6 +110,9 @@
         <br />
         <br />
         <p style="font-size:20px"><strong>Link Publication:</strong></p>
+            <p style="font-size:20px">
+                <asp:Label ID="errorLink" runat="server" Text="" style="color:red"></asp:Label>
+                </p>
         <br />
         <asp:Label ID="Label12" runat="server" Text="Publication ID: "></asp:Label>
         <asp:TextBox ID="pubIDBox" runat="server"></asp:TextBox>
